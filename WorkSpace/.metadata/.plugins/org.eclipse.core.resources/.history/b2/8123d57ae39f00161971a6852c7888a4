@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.egou.dao.UUsersinfoMapper" >
+  <resultMap id="BaseResultMap" type="com.egou.bean.UUsersinfo" >
+    <id column="UserID" property="userid" jdbcType="BIGINT" />
+    <result column="CardID" property="cardid" jdbcType="VARCHAR" />
+    <result column="CardType" property="cardtype" jdbcType="INTEGER" />
+    <result column="HeadImg" property="headimg" jdbcType="VARCHAR" />
+    <result column="BackImg" property="backimg" jdbcType="VARCHAR" />
+    <result column="IsVerifer" property="isverifer" jdbcType="INTEGER" />
+    <result column="IsSupplier" property="issupplier" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    UserID, CardID, CardType, HeadImg, BackImg, IsVerifer, IsSupplier
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from u_usersinfo
+    where UserID = #{userid,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from u_usersinfo
+    where UserID = #{userid,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.egou.bean.UUsersinfo" >
+    insert into u_usersinfo (UserID, CardID, CardType, 
+      HeadImg, BackImg, IsVerifer, 
+      IsSupplier)
+    values (#{userid,jdbcType=BIGINT}, #{cardid,jdbcType=VARCHAR}, #{cardtype,jdbcType=INTEGER}, 
+      #{headimg,jdbcType=VARCHAR}, #{backimg,jdbcType=VARCHAR}, #{isverifer,jdbcType=INTEGER}, 
+      #{issupplier,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.egou.bean.UUsersinfo" >
+    insert into u_usersinfo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userid != null" >
+        UserID,
+      </if>
+      <if test="cardid != null" >
+        CardID,
+      </if>
+      <if test="cardtype != null" >
+        CardType,
+      </if>
+      <if test="headimg != null" >
+        HeadImg,
+      </if>
+      <if test="backimg != null" >
+        BackImg,
+      </if>
+      <if test="isverifer != null" >
+        IsVerifer,
+      </if>
+      <if test="issupplier != null" >
+        IsSupplier,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userid != null" >
+        #{userid,jdbcType=BIGINT},
+      </if>
+      <if test="cardid != null" >
+        #{cardid,jdbcType=VARCHAR},
+      </if>
+      <if test="cardtype != null" >
+        #{cardtype,jdbcType=INTEGER},
+      </if>
+      <if test="headimg != null" >
+        #{headimg,jdbcType=VARCHAR},
+      </if>
+      <if test="backimg != null" >
+        #{backimg,jdbcType=VARCHAR},
+      </if>
+      <if test="isverifer != null" >
+        #{isverifer,jdbcType=INTEGER},
+      </if>
+      <if test="issupplier != null" >
+        #{issupplier,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.egou.bean.UUsersinfo" >
+    update u_usersinfo
+    <set >
+      <if test="cardid != null" >
+        CardID = #{cardid,jdbcType=VARCHAR},
+      </if>
+      <if test="cardtype != null" >
+        CardType = #{cardtype,jdbcType=INTEGER},
+      </if>
+      <if test="headimg != null" >
+        HeadImg = #{headimg,jdbcType=VARCHAR},
+      </if>
+      <if test="backimg != null" >
+        BackImg = #{backimg,jdbcType=VARCHAR},
+      </if>
+      <if test="isverifer != null" >
+        IsVerifer = #{isverifer,jdbcType=INTEGER},
+      </if>
+      <if test="issupplier != null" >
+        IsSupplier = #{issupplier,jdbcType=INTEGER},
+      </if>
+    </set>
+    where UserID = #{userid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.egou.bean.UUsersinfo" >
+    update u_usersinfo
+    set CardID = #{cardid,jdbcType=VARCHAR},
+      CardType = #{cardtype,jdbcType=INTEGER},
+      HeadImg = #{headimg,jdbcType=VARCHAR},
+      BackImg = #{backimg,jdbcType=VARCHAR},
+      IsVerifer = #{isverifer,jdbcType=INTEGER},
+      IsSupplier = #{issupplier,jdbcType=INTEGER}
+    where UserID = #{userid,jdbcType=BIGINT}
+  </update>
+</mapper>

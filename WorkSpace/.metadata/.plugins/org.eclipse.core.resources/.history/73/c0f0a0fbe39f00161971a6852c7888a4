@@ -1,0 +1,36 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>egou-passport</artifactId>
+  <packaging>war</packaging>
+  <name>egou-passport Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  
+  <dependencies>
+		<dependency>
+			<groupId>com.egou</groupId>
+			<artifactId>egou-basic</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<exclusions>
+				<exclusion>
+					<groupId>javax.servlet</groupId>
+					<artifactId>servlet-api</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>com.egou</groupId>
+			<artifactId>egou-basic</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<classifier>sources</classifier>
+		</dependency>
+	</dependencies>
+	<build>
+		<finalName>egou-passport</finalName>
+	</build>
+	<parent>
+		<groupId>com.egou</groupId>
+		<artifactId>egou-parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+</project>
