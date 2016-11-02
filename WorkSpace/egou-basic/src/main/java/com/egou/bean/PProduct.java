@@ -6,7 +6,7 @@ import java.util.Date;
 public class PProduct {
     private Long productid;
 
-    private Long brandid;
+    private Long brandid; 
 
     private Integer classid;
 
