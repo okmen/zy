@@ -2,7 +2,11 @@ package com.egou.bean;
 
 import java.io.Serializable;
 import java.util.Date;
-
+/**
+ * 用户基本表
+ * @author Administrator
+ *
+ */
 public class UUsers  implements Serializable{
 
 	private static final long serialVersionUID = 1L;
