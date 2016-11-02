@@ -72,7 +72,8 @@ import com.egou.utils.ParseHelper;
 
 public class LuceneSearch extends LuceneCommon {
 
-	public LuceneSearch() {}
+	public LuceneSearch() {
+	}
 
 	/**
 	 * 创建索引查询 IndexSearch
@@ -88,7 +89,14 @@ public class LuceneSearch extends LuceneCommon {
 		return is;
 	}
 
-	
+	/**
+	 * 搜索
+	 * @param text
+	 * @param pageIndex
+	 * @param pageSize
+	 * @return
+	 * @throws IOException
+	 */
 	public List<ProductIndex> search(String text, int pageIndex, int pageSize) throws IOException {
 		IndexSearcher is = getSearcher();
 		// ----------设置过滤器------------------------------------------------

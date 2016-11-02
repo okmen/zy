@@ -5,9 +5,9 @@
 <properties>  
 	<comment>IK Analyzer 扩展配置</comment>
 
-	<entry key="ext_dict">F:\lucene\Dict\Dict.dct;F:\lucene\Dict\ChsDoubleName1.txt;F:\lucene\Dict\ChsDoubleName2.txt;F:\lucene\Dict\ChsSingleName.txt;F:\lucene\Dict\Stopword.txt;F:\lucene\Dict\Synonym.txt;F:\lucene\Dict\Wildcard.txt;</entry> 
+	<!--<entry key="ext_dict">F:\lucene\Dict\Dict.dct;F:\lucene\Dict\ChsDoubleName1.txt;F:\lucene\Dict\ChsDoubleName2.txt;F:\lucene\Dict\ChsSingleName.txt;F:\lucene\Dict\Stopword.txt;F:\lucene\Dict\Synonym.txt;F:\lucene\Dict\Wildcard.txt;</entry> 
 	
-	<!--用户可以在这里配置自己的扩展停止词字典-->
+	用户可以在这里配置自己的扩展停止词字典-->
 	<!-- <entry key="ext_stopwords">stopword.dic</entry>  -->
 	
 </properties>

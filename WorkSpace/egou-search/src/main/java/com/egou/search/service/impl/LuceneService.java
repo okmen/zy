@@ -1,8 +1,13 @@
 package com.egou.search.service.impl;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,7 +19,9 @@ import com.egou.search.lucene.CreateLuceneIndex;
 import com.egou.search.lucene.LuceneSearch;
 import com.egou.search.service.ILuceneSerive;
 import com.egou.search.vo.ProductIndex;
+import com.egou.utils.HttpRequestHelper;
 import com.egou.utils.JsonUtils;
+import com.egou.utils.ParseHelper;
 
 @Service("luceneService")
 @Transactional(rollbackFor = { RuntimeException.class, Exception.class })
@@ -61,5 +68,31 @@ public class LuceneService implements ILuceneSerive {
 		List<ProductIndex> list = new LuceneSearch().search(title, index, size);
 		System.out.println(JsonUtils.objectToJson(list));
 		return list;
+	}
+	
+	public void insertInit(int index,int size){
+		HttpRequestHelper aaHelper=new HttpRequestHelper();
+		String resultStr= aaHelper.sendGet("http://10.10.2.10:8080/test/findproducts", "pageIndex="+index+"&pageSize="+size);
+		JSONObject model = JSONObject.fromObject(resultStr);
+		String splistString = String.valueOf(model.get("BaseModle"));
+		if (splistString != null && !"".equals(splistString)&&!"[]".equals(splistString)) {
+			JSONArray prolistArray = new JSONArray().fromObject(splistString);
+			if (prolistArray != null && prolistArray.size() > 0) {
+				for (int i = 0; i < prolistArray.size(); i++) {
+					JSONObject pro = prolistArray.getJSONObject(i);//
+					 PProduct mo=new PProduct();
+					 mo.setProductid(ParseHelper.toLong(String.valueOf(pro.get("productId"))));
+					 mo.setTitle(String.valueOf(pro.get("productTitle")));
+					 mo.setDefaultprice(ParseHelper.toDouble(String.valueOf(pro.get("defaultPrice"))));
+					 mo.setSellerid(ParseHelper.toLong(String.valueOf(pro.get("supplierWeiId"))));
+					 mo.setDefaultimg(String.valueOf(pro.get("defaultImg")));
+					 mo.setCreatetime(new Date()); 
+					 mo.setStatus(1);
+					 mo.setBrandid(1l);
+					 mo.setClassid(ParseHelper.toInt(String.valueOf(pro.get("classId"))));
+					 productDao.insertSelective(mo);
+				}
+			}
+		}
 	}
 }

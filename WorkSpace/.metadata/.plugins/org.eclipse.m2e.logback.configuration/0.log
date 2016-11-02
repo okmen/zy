@@ -2177,3 +2177,295 @@
 2016-11-02 15:12:55,806 [Worker-111] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
 2016-11-02 15:12:55,807 [Worker-111] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
 2016-11-02 15:12:55,808 [Worker-111] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-search\src\test\resources
+2016-11-02 15:23:38,192 [Worker-114] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 15:23:38,216 [Worker-114] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2016-11-02 15:23:38,218 [Worker-114] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 15:23:38,218 [Worker-114] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-search\src\test\resources
+2016-11-02 15:23:40,897 [Worker-122] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 15:23:40,898 [Worker-122] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2016-11-02 15:23:40,899 [Worker-122] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 15:23:40,899 [Worker-122] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-search\src\test\resources
+2016-11-02 15:27:39,790 [Worker-114] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 15:27:39,791 [Worker-114] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2016-11-02 15:27:39,792 [Worker-114] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 15:27:39,793 [Worker-114] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-search\src\test\resources
+2016-11-02 15:28:00,162 [Worker-114] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 15:28:00,163 [Worker-114] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2016-11-02 15:28:00,164 [Worker-114] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 15:28:00,165 [Worker-114] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-search\src\test\resources
+2016-11-02 15:28:52,271 [Worker-125] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 15:28:52,272 [Worker-125] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-11-02 15:28:52,274 [Worker-125] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 15:28:52,274 [Worker-125] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-search\src\test\resources
+2016-11-02 15:54:34,032 [Worker-1] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.egou:egou-basic:0.0.1-SNAPSHOT @ F:\gitPath\WorkSpace\egou-basic\pom.xml.
+2016-11-02 15:54:35,793 [Worker-1] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using NULL lifecycle mapping for MavenProject: com.egou:egou-parent:0.0.1-SNAPSHOT @ F:\gitPath\WorkSpace\egou-parent\pom.xml.
+2016-11-02 15:54:36,292 [Worker-1] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: com.egou:egou-passport:0.0.1-SNAPSHOT @ F:\gitPath\WorkSpace\egou-passport\pom.xml.
+2016-11-02 15:54:36,537 [Worker-8] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.egou:egou-basic:0.0.1-SNAPSHOT @ F:\gitPath\WorkSpace\egou-basic\pom.xml.
+2016-11-02 15:54:38,066 [Worker-5] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.egou:egou-basic:0.0.1-SNAPSHOT @ F:\gitPath\WorkSpace\egou-basic\pom.xml.
+2016-11-02 15:54:38,104 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-11-02 15:54:38,104 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-basic\src\main\resources
+2016-11-02 15:54:38,108 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-11-02 15:54:38,108 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-basic\src\test\resources
+2016-11-02 15:54:38,313 [Worker-8] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using NULL lifecycle mapping for MavenProject: com.egou:egou-parent:0.0.1-SNAPSHOT @ F:\gitPath\WorkSpace\egou-parent\pom.xml.
+2016-11-02 15:54:39,937 [Worker-8] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.egou:egou-basic:0.0.1-SNAPSHOT @ F:\gitPath\WorkSpace\egou-basic\pom.xml.
+2016-11-02 15:54:40,599 [Worker-1] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.egou:egou-basic:0.0.1-SNAPSHOT @ F:\gitPath\WorkSpace\egou-basic\pom.xml.
+2016-11-02 15:54:41,220 [Worker-2] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 15:54:41,222 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-basic\src\main\resources
+2016-11-02 15:54:41,224 [Worker-2] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 15:54:41,224 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-basic\src\test\resources
+2016-11-02 15:54:41,695 [Worker-1] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using NULL lifecycle mapping for MavenProject: com.egou:egou-parent:0.0.1-SNAPSHOT @ F:\gitPath\WorkSpace\egou-parent\pom.xml.
+2016-11-02 15:54:42,001 [Worker-1] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: com.egou:egou-passport:0.0.1-SNAPSHOT @ F:\gitPath\WorkSpace\egou-passport\pom.xml.
+2016-11-02 15:54:42,387 [Worker-1] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: com.egou:egou-search:0.0.1-SNAPSHOT @ F:\gitPath\WorkSpace\egou-search\pom.xml.
+2016-11-02 15:54:43,129 [Worker-2] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: com.egou:egou-passport:0.0.1-SNAPSHOT @ F:\gitPath\WorkSpace\egou-passport\pom.xml.
+2016-11-02 15:54:46,294 [Worker-2] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 15:54:46,301 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2016-11-02 15:54:46,329 [Worker-2] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 15:54:46,330 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-passport\src\test\resources
+2016-11-02 15:54:47,002 [Worker-2] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: com.egou:egou-search:0.0.1-SNAPSHOT @ F:\gitPath\WorkSpace\egou-search\pom.xml.
+2016-11-02 15:54:49,442 [Worker-2] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 15:54:49,444 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2016-11-02 15:54:49,530 [Worker-2] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 15:54:49,531 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-search\src\test\resources
+2016-11-02 15:54:50,938 [Worker-3] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.egou:egou-basic:0.0.1-SNAPSHOT @ F:\gitPath\WorkSpace\egou-basic\pom.xml.
+2016-11-02 15:54:51,590 [Worker-3] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using NULL lifecycle mapping for MavenProject: com.egou:egou-parent:0.0.1-SNAPSHOT @ F:\gitPath\WorkSpace\egou-parent\pom.xml.
+2016-11-02 15:54:51,813 [Worker-3] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: com.egou:egou-passport:0.0.1-SNAPSHOT @ F:\gitPath\WorkSpace\egou-passport\pom.xml.
+2016-11-02 15:54:52,091 [Worker-3] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: com.egou:egou-search:0.0.1-SNAPSHOT @ F:\gitPath\WorkSpace\egou-search\pom.xml.
+2016-11-02 15:55:08,286 [Worker-2] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 15:55:08,288 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-basic\src\main\resources
+2016-11-02 15:55:08,291 [Worker-2] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 15:55:08,293 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-basic\src\test\resources
+2016-11-02 15:55:08,853 [Worker-2] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 15:55:08,856 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-11-02 15:55:08,857 [Worker-2] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 15:55:08,857 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-passport\src\test\resources
+2016-11-02 15:55:09,519 [Worker-2] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 15:55:09,521 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-11-02 15:55:09,523 [Worker-2] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 15:55:09,525 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-search\src\test\resources
+2016-11-02 15:56:50,223 [Worker-1] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 15:56:50,224 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-basic\src\main\resources
+2016-11-02 15:56:50,227 [Worker-1] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 15:56:50,228 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-basic\src\test\resources
+2016-11-02 15:57:54,403 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 15:57:54,404 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-basic\src\main\resources
+2016-11-02 15:57:54,406 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 15:57:54,407 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-basic\src\test\resources
+2016-11-02 15:58:49,146 [Worker-2] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 15:58:49,150 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-basic\src\main\resources
+2016-11-02 15:58:49,155 [Worker-2] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 15:58:49,157 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-basic\src\test\resources
+2016-11-02 15:59:29,181 [Worker-6] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.egou:egou-basic:0.0.1-SNAPSHOT @ F:\gitPath\WorkSpace\egou-basic\pom.xml.
+2016-11-02 15:59:30,082 [Worker-6] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://10.10.10.180:8081/nexus/content/groups/public/commons-codec/commons-codec/1.2/commons-codec-1.2.jar
+2016-11-02 15:59:41,127 [Worker-6] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://10.10.10.180:8081/nexus/content/groups/public/commons-codec/commons-codec/1.2/commons-codec-1.2.jar
+2016-11-02 15:59:41,397 [Worker-6] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: com.egou:egou-passport:0.0.1-SNAPSHOT @ F:\gitPath\WorkSpace\egou-passport\pom.xml.
+2016-11-02 15:59:41,574 [Worker-6] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: com.egou:egou-search:0.0.1-SNAPSHOT @ F:\gitPath\WorkSpace\egou-search\pom.xml.
+2016-11-02 15:59:43,255 [Worker-6] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 15:59:43,256 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-basic\src\main\resources
+2016-11-02 15:59:43,257 [Worker-6] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 15:59:43,258 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-basic\src\test\resources
+2016-11-02 15:59:43,850 [Worker-6] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 15:59:43,852 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2016-11-02 15:59:43,856 [Worker-6] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 15:59:43,857 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-passport\src\test\resources
+2016-11-02 15:59:45,138 [Worker-6] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 15:59:45,140 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2016-11-02 15:59:45,153 [Worker-6] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 15:59:45,154 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-search\src\test\resources
+2016-11-02 15:59:47,435 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 15:59:47,436 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-basic\src\main\resources
+2016-11-02 15:59:47,437 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 15:59:47,438 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-basic\src\test\resources
+2016-11-02 15:59:47,540 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 15:59:47,541 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-11-02 15:59:47,543 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 15:59:47,544 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-passport\src\test\resources
+2016-11-02 15:59:47,736 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 15:59:47,738 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-11-02 15:59:47,741 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 15:59:47,742 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-search\src\test\resources
+2016-11-02 15:59:51,235 [Worker-10] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for egou-passport
+2016-11-02 15:59:51,275 [Worker-10] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for egou-search
+2016-11-02 15:59:51,761 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 15:59:51,762 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-basic\src\main\resources
+2016-11-02 15:59:51,763 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 15:59:51,764 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-basic\src\test\resources
+2016-11-02 15:59:52,212 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 15:59:52,214 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2016-11-02 15:59:52,218 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 15:59:52,219 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-passport\src\test\resources
+2016-11-02 15:59:52,567 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 15:59:52,569 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2016-11-02 15:59:52,582 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 15:59:52,583 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-search\src\test\resources
+2016-11-02 16:00:09,266 [Worker-6] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:00:09,267 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-basic\src\main\resources
+2016-11-02 16:00:09,268 [Worker-6] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:00:09,269 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-basic\src\test\resources
+2016-11-02 16:01:30,097 [Worker-11] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:01:30,099 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2016-11-02 16:01:30,102 [Worker-11] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:01:30,103 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-search\src\test\resources
+2016-11-02 16:02:56,327 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:02:56,329 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2016-11-02 16:02:56,331 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:02:56,332 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-search\src\test\resources
+2016-11-02 16:03:21,814 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:03:21,815 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2016-11-02 16:03:21,817 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:03:21,818 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-search\src\test\resources
+2016-11-02 16:03:44,412 [Worker-10] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:03:44,413 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2016-11-02 16:03:44,415 [Worker-10] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:03:44,415 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-search\src\test\resources
+2016-11-02 16:03:58,561 [Worker-1] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:03:58,563 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2016-11-02 16:03:58,565 [Worker-1] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:03:58,566 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-search\src\test\resources
+2016-11-02 16:04:04,975 [Worker-1] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:04:04,977 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2016-11-02 16:04:04,979 [Worker-1] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:04:04,980 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-search\src\test\resources
+2016-11-02 16:05:17,973 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:05:17,975 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2016-11-02 16:05:17,977 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:05:17,978 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-search\src\test\resources
+2016-11-02 16:05:22,172 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:05:22,174 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2016-11-02 16:05:22,176 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:05:22,177 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-search\src\test\resources
+2016-11-02 16:05:30,017 [Worker-11] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:05:30,018 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2016-11-02 16:05:30,020 [Worker-11] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:05:30,021 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-search\src\test\resources
+2016-11-02 16:08:27,699 [Worker-1] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:08:27,701 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2016-11-02 16:08:27,704 [Worker-1] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:08:27,705 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-search\src\test\resources
+2016-11-02 16:09:46,182 [Worker-1] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:09:46,183 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-basic\src\main\resources
+2016-11-02 16:09:46,184 [Worker-1] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:09:46,185 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-basic\src\test\resources
+2016-11-02 16:11:35,702 [Worker-13] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:11:35,704 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-basic\src\main\resources
+2016-11-02 16:11:35,705 [Worker-13] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:11:35,706 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-basic\src\test\resources
+2016-11-02 16:12:12,472 [Worker-11] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:12:12,473 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-basic\src\main\resources
+2016-11-02 16:12:12,475 [Worker-11] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:12:12,476 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-basic\src\test\resources
+2016-11-02 16:13:19,649 [Worker-1] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:13:19,651 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2016-11-02 16:13:19,652 [Worker-1] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:13:19,653 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-search\src\test\resources
+2016-11-02 16:13:33,251 [Worker-6] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:13:33,252 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2016-11-02 16:13:33,254 [Worker-6] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:13:33,255 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-search\src\test\resources
+2016-11-02 16:18:49,653 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:18:49,654 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2016-11-02 16:18:49,656 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:18:49,657 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-search\src\test\resources
+2016-11-02 16:21:27,807 [Worker-1] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:21:27,808 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2016-11-02 16:21:27,810 [Worker-1] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:21:27,811 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-search\src\test\resources
+2016-11-02 16:21:52,907 [Worker-1] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:21:52,908 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2016-11-02 16:21:52,910 [Worker-1] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:21:52,911 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-search\src\test\resources
+2016-11-02 16:22:14,110 [Worker-15] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:22:14,112 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2016-11-02 16:22:14,114 [Worker-15] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:22:14,115 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-search\src\test\resources
+2016-11-02 16:23:49,968 [Worker-15] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:23:49,969 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2016-11-02 16:23:49,971 [Worker-15] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:23:49,972 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-search\src\test\resources
+2016-11-02 16:24:14,181 [Worker-1] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:24:14,183 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2016-11-02 16:24:14,185 [Worker-1] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:24:14,186 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-search\src\test\resources
+2016-11-02 16:24:39,391 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:24:39,395 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2016-11-02 16:24:39,397 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:24:39,398 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-search\src\test\resources
+2016-11-02 16:24:48,368 [Worker-1] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:24:48,369 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2016-11-02 16:24:48,371 [Worker-1] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:24:48,372 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-search\src\test\resources
+2016-11-02 16:26:27,765 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:26:27,767 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2016-11-02 16:26:27,769 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:26:27,770 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-search\src\test\resources
+2016-11-02 16:26:39,355 [Worker-6] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:26:39,356 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-basic\src\main\resources
+2016-11-02 16:26:39,357 [Worker-6] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:26:39,358 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-basic\src\test\resources
+2016-11-02 16:26:46,350 [Worker-14] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:26:46,351 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-basic\src\main\resources
+2016-11-02 16:26:46,352 [Worker-14] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:26:46,353 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-basic\src\test\resources
+2016-11-02 16:26:46,427 [Worker-14] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:26:46,428 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2016-11-02 16:26:46,430 [Worker-14] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:26:46,432 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-search\src\test\resources
+2016-11-02 16:27:20,789 [Worker-11] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:27:20,791 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-basic\src\main\resources
+2016-11-02 16:27:20,794 [Worker-11] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:27:20,796 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-basic\src\test\resources
+2016-11-02 16:28:33,718 [Worker-17] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:28:33,720 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2016-11-02 16:28:33,721 [Worker-17] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:28:33,722 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-search\src\test\resources
+2016-11-02 16:28:56,828 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:28:56,830 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2016-11-02 16:28:56,832 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:28:56,832 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-search\src\test\resources
+2016-11-02 16:31:51,291 [Worker-18] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:31:51,295 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2016-11-02 16:31:51,298 [Worker-18] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:31:51,299 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-search\src\test\resources
+2016-11-02 16:34:28,648 [Worker-1] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:34:28,649 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2016-11-02 16:34:28,651 [Worker-1] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:34:28,651 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-search\src\test\resources
+2016-11-02 16:34:59,304 [Worker-18] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:34:59,305 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2016-11-02 16:34:59,307 [Worker-18] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:34:59,309 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-search\src\test\resources
+2016-11-02 16:36:18,539 [Worker-14] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:36:18,542 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2016-11-02 16:36:18,544 [Worker-14] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:36:18,545 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-search\src\test\resources
+2016-11-02 16:36:20,722 [Worker-11] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:36:20,723 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2016-11-02 16:36:20,725 [Worker-11] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:36:20,726 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-search\src\test\resources
+2016-11-02 16:37:18,254 [Worker-16] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:37:18,256 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2016-11-02 16:37:18,258 [Worker-16] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:37:18,259 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-search\src\test\resources
+2016-11-02 16:37:24,369 [Worker-6] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:37:24,370 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2016-11-02 16:37:24,372 [Worker-6] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:37:24,373 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-search\src\test\resources
+2016-11-02 16:42:24,050 [Worker-17] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:42:24,052 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2016-11-02 16:42:24,054 [Worker-17] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:42:24,055 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-search\src\test\resources
+2016-11-02 16:51:41,203 [Worker-11] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:51:41,206 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2016-11-02 16:51:41,209 [Worker-11] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 16:51:41,210 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-search\src\test\resources
+2016-11-02 17:01:17,398 [Worker-20] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 17:01:17,439 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2016-11-02 17:01:17,471 [Worker-20] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 17:01:17,472 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-search\src\test\resources
+2016-11-02 17:01:42,228 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 17:01:42,230 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2016-11-02 17:01:42,233 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 17:01:42,234 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-search\src\test\resources
+2016-11-02 17:02:16,202 [Worker-11] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 17:02:16,203 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2016-11-02 17:02:16,216 [Worker-11] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-11-02 17:02:16,217 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\gitPath\WorkSpace\egou-search\src\test\resources

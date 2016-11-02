@@ -16,7 +16,7 @@ public class PProduct {
 
     private Long sellerid;
 
-    private BigDecimal defaultprice;
+    private Double defaultprice;
 
     private String defaultimg;
 
@@ -78,11 +78,11 @@ public class PProduct {
         this.sellerid = sellerid;
     }
 
-    public BigDecimal getDefaultprice() {
+    public Double getDefaultprice() {
         return defaultprice;
     }
 
-    public void setDefaultprice(BigDecimal defaultprice) {
+    public void setDefaultprice(Double defaultprice) {
         this.defaultprice = defaultprice;
     }
 

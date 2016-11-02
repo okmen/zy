@@ -27,4 +27,6 @@ public interface ILuceneSerive {
 	 * @throws IOException
 	 */
 	List<ProductIndex> find_Products(String title,int index,int size) throws IOException;
+	
+	public void insertInit(int index,int size);
 }
