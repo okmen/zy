@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.egou.bean.PProduct;
 import com.egou.dao.PProductMapper;
+import com.egou.search.lucene.CreateLuceneIndex;
 import com.egou.search.lucene.NearRealTimeSearch;
 import com.egou.search.service.ILuceneSerive;
 import com.egou.search.vo.ProductIndex;
@@ -22,7 +23,8 @@ public class LuceneService implements ILuceneSerive {
 	@Autowired
 	private PProductMapper productDao;
 
-	private NearRealTimeSearch lucene;
+	private CreateLuceneIndex create;
+//	private NearRealTimeSearch lucene;
 
 	public List<PProduct> findAll() {
 		return productDao.findAll();
@@ -41,10 +43,10 @@ public class LuceneService implements ILuceneSerive {
 			}
 			try {
 				if (productIndexs.size() > 0) {
-					if (lucene == null) {
-						lucene = new NearRealTimeSearch();
+					if (create == null) {
+						create = new CreateLuceneIndex();
 					}
-					lucene.index(productIndexs);
+					create.createIndexs(productIndexs);
 				}
 
 			} catch (IOException e) {

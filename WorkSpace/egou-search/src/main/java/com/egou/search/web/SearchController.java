@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.egou.bean.PProduct;
+
 import com.egou.search.service.ILuceneSerive;
 import com.egou.search.vo.ProductIndex;
 import com.egou.utils.JsonUtils;

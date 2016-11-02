@@ -1,23 +1,29 @@
 package com.egou.search.lucene;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field.Store;
 import org.apache.lucene.document.LongField;
+import org.apache.lucene.document.StringField;
 import org.apache.lucene.document.TextField;
 import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
+import org.apache.lucene.index.TrackingIndexWriter;
 import org.apache.lucene.queryparser.classic.QueryParser;
+import org.apache.lucene.search.ControlledRealTimeReopenThread;
 import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.search.Query;
+import org.apache.lucene.search.ReferenceManager;
 import org.apache.lucene.search.ScoreDoc;
 import org.apache.lucene.search.Sort;
 import org.apache.lucene.search.SortField;
@@ -29,102 +35,46 @@ import org.apache.lucene.util.Version;
 import org.wltea.analyzer.lucene.IKAnalyzer;
 
 import com.egou.bean.PProduct;
+import com.egou.search.vo.ProductIndex;
 import com.egou.search.vo.SearchResultBean;
 import com.egou.utils.AppSettingUtil;
 
-public class CreateLuceneIndex {
+public class CreateLuceneIndex extends LuceneCommon{
+
+	public CreateLuceneIndex() {
+		super.init();
+	}
 	
-	public static void indexProduct(PProduct index)
-	{
-		File indexDir = new File(AppSettingUtil.getSingleValue("luceneIndex"));
+	/**
+	 * 建立索引 要实现search nrt,需要使用TrackIndexWriter保存document，同时Writer也不需要关闭。
+	 * 
+	 * **/
+	public void createIndexs(List<ProductIndex> ids) throws IOException {
 
-		Analyzer analyzer = new IKAnalyzer();
-
-//		TextField postIdField = new TextField("id", ID, Store.YES); // 不要用StringField
-//		TextField postContentField = new TextField("content", content,
-//				Store.YES);
-		
-		Document doc = new Document();
-		doc.add(new LongField("id", index.getProductid(), Store.YES));
-//		doc.add(new StringField("suptype",index.getSupType(),Store.YES));
-		doc.add(new LongField("createtime",new Date().getTime(),Store.YES));
-		IndexWriterConfig iwConfig = new IndexWriterConfig(
-				Version.LUCENE_4_10_4, analyzer);
-		
-			iwConfig.setOpenMode(IndexWriterConfig.OpenMode.CREATE);
-		
 		try {
-			Directory fsDirectory = FSDirectory.open(indexDir);
-			IndexWriter indexWriter = new IndexWriter(fsDirectory, iwConfig);
-			indexWriter.addDocument(doc);
-			indexWriter.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	public static void indexPost(String ID, String content) {
-		File indexDir = new File(AppSettingUtil.getSingleValue("luceneIndex"));
-
-		Analyzer analyzer = new IKAnalyzer();
-
-		TextField postIdField = new TextField("id", ID, Store.YES); // 不要用StringField
-		TextField postContentField = new TextField("content", content,
-				Store.YES);
-		Document doc = new Document();
-		doc.add(postIdField);
-		doc.add(postContentField);
-		doc.add(new LongField("createtime",new Date().getTime(),Store.YES));
-		IndexWriterConfig iwConfig = new IndexWriterConfig(
-				Version.LUCENE_4_10_4, analyzer);
-		iwConfig.setOpenMode(IndexWriterConfig.OpenMode.CREATE_OR_APPEND);
-		try {
-			Directory fsDirectory = FSDirectory.open(indexDir);
-			IndexWriter indexWriter = new IndexWriter(fsDirectory, iwConfig);
-			indexWriter.addDocument(doc);
-			indexWriter.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	public static SearchResultBean searchPost(String text,int pageindex,int pagesize) {
-		SearchResultBean sb= new SearchResultBean();		
-		Analyzer analyzer = new IKAnalyzer();
-		File indexDir = new File(AppSettingUtil.getSingleValue("luceneIndex"));
-		try {
-			Directory fsDirectory = FSDirectory.open(indexDir);
-			DirectoryReader ireader = DirectoryReader.open(fsDirectory);
-			IndexSearcher isearcher = new IndexSearcher(ireader);
-			Sort sort=new Sort(new SortField("createtime", Type.LONG, false));
-			QueryParser qp = new QueryParser("content", analyzer); // 使用QueryParser查询分析器构造Query对象
-			qp.setDefaultOperator(QueryParser.AND_OPERATOR);
-			Query query = qp.parse(text); // 搜索Lucene
-			
-			TopDocs topDocs = isearcher.search(query, 1000,sort); // 搜索相似度最高的N条记录
-			 //查询起始记录位置
-	        int begin = pagesize * (pageindex - 1);	    
-	        sb.setTotalHits(topDocs.totalHits);
-			System.out.println("命中:" + topDocs.totalHits);
-	        
-			ScoreDoc[] scoreDocs = topDocs.scoreDocs;
-			//查询终止记录位置
-	        int end = Math.min(begin + pagesize, scoreDocs.length);
-	        List<Map<String,Object>> lists= new ArrayList<Map<String,Object>>();
-			for (int i = begin; i < end; i++) {
-				Map<String,Object> map= new  HashMap<String,Object>();
-				Document targetDoc = isearcher.doc(scoreDocs[i].doc);
-				System.out.println("内容:" + targetDoc.toString());
-				System.out.println("具体内容："+targetDoc.get("id"));
-				map.put("productid", targetDoc.get("id"));
-				lists.add(map);
-				
+			if (ids == null || ids.size() <= 0)
+				return;
+			for (int i = 0; i < ids.size(); i++) {
+				Document doc = new Document();
+				ProductIndex ldata = ids.get(i);
+				try {
+					doc.add(new StringField("id", ldata.getProductid().toString(), Store.YES));
+					doc.add(new TextField("title", ldata.getTitle(), Store.YES));
+					
+					if (trackingIndexWriter == null) {
+						// logger.warn("Lucene创建索引时异常，trackingIndexWriter为空");
+						System.out.println("Lucene创建索引时异常，trackingIndexWriter为空");
+						super.init();
+					}
+					trackingIndexWriter.addDocument(doc);
+				} catch (Exception ex) {
+					// logger.error("Lucene创建索引时异常:" + ex.getMessage());
+					System.out.println("Lucene创建索引时异常:" + ex.getMessage());
+					continue;
+				}
 			}
-			sb.setDocs(lists);
-			return sb;
-		} catch (Exception e) {
-			return null;
+		} finally {
+			super.commit();// 首次创建，提交索引,只有提交后，才会在索引片段中也将信息改变
 		}
-
 	}
 }

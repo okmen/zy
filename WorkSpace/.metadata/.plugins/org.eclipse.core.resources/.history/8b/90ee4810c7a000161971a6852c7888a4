@@ -1,0 +1,8 @@
+package com.egou.search.lucene;
+
+import org.apache.lucene.util.Version;
+
+public class LuceneCommon {
+	
+	 static Version Lucene_Version = Version.LUCENE_4_10_4;
+}

@@ -65,97 +65,24 @@ import org.wltea.analyzer.core.IKSegmenter;
 import org.wltea.analyzer.core.Lexeme;
 
 
-
-
-
-
-
-
-
-
-
 //import com.egou.search.service.ILuceneSerive;
 import com.egou.search.vo.ProductIndex;
 import com.egou.utils.DateUtils;
 import com.egou.utils.ObjectUtils;
 import com.egou.utils.ParseHelper;
 
-public class NearRealTimeSearch {
-	private static Version Lucene_Version = Version.LUCENE_4_10_4;
+public class NearRealTimeSearch extends LuceneCommon{
 
-
-
-	//索引位置
-	private Directory directory = null;
-	//
-	private IndexWriter writer = null;
-	//索引读取
-	private IndexReader reader;
 	/** nrt init **/
 	private TrackingIndexWriter trackingIndexWriter = null;
 	private ReferenceManager<IndexSearcher> reMgr = null;// 绫讳技浜嶭ucene3.x涓殑NrtManager
 	private ControlledRealTimeReopenThread<IndexSearcher> crt = null;
-	private Log logger = LogFactory.getLog(this.getClass());
-	private String stopWordTable = "";
+//	private Log logger = LogFactory.getLog(this.getClass());
 	private Set<String> stopWordSet = null;
 
 	// 
 	public NearRealTimeSearch() {}
 
-	public void initStopWord() {
-		try {
-			// 读入停用词文件
-			BufferedReader StopWordFileBr = new BufferedReader(new InputStreamReader(new FileInputStream(new File(stopWordTable))));
-			// 用来存放停用词的集合
-			stopWordSet = new HashSet<String>();
-			// 初如化停用词集
-			String stopWord = null;
-			for (; (stopWord = StopWordFileBr.readLine()) != null;) {
-				stopWordSet.add(stopWord);
-			}
-			// 关闭流
-			StopWordFileBr.close();
-		} catch (Exception ex) {
-
-		}
-	}
-
-	public void init() {
-		if (crt == null) {
-			try {
-				initStopWord();
-				stopWordTable = getClass().getClassLoader().getResource("ChineseStopWord.txt").getPath();
-				directory = new FileIndexUtils().getDirectory();
-				if (IndexWriter.isLocked(directory)) {
-					IndexWriter.unlock(directory);
-				}
-				// Analyzer analyzer=new StandardAnalyzer(Version.LUCENE_46);
-				writer = new IndexWriter(directory, new IndexWriterConfig(Lucene_Version, AnalyzerUtil.getIkAnalyzer()));
-				trackingIndexWriter = new TrackingIndexWriter(writer);
-				reMgr = new SearcherManager(writer, true, new SearcherFactory());
-				/** 在0.025s~5.0s之间重启一次线程，这个是时间的最佳实践 **/
-				crt = new ControlledRealTimeReopenThread<>(trackingIndexWriter, reMgr, 5.0, 0.025);
-				crt.setDaemon(true);// 设置为后台服务
-				crt.setName("Index update to disk");// 线程名称
-				crt.start();// 线程启动
-
-			} catch (Exception e) {
-				System.out.println("Lucene初始化失败：" + e.getMessage());
-				e.printStackTrace();
-			}
-		}
-	}
-
-	/**
-	 * 定期提交内存中得索引到硬盘上，防止丢失
-	 */
-	public void commit() {
-		try {
-			writer.commit();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
 
 	/**
 	 * 建立索引 要实现search nrt,需要使用TrackIndexWriter保存document，同时Writer也不需要关闭。
@@ -190,57 +117,7 @@ public class NearRealTimeSearch {
 		}
 	}
 
-	/*** 鏌ヨ 
-	 * @throws IOException **/
-	public void query() throws IOException {
-		IndexSearcher is = getSearcher();
-		try {
-			// 閫氳繃reader鍙互鏈夋晥鐨勮幏鍙栧埌鏂囨。鐨勬暟閲�
-			System.out.println("numDocs:" + is.getIndexReader().numDocs());
-			System.out.println("maxDocs:" + is.getIndexReader().maxDoc());
-			System.out.println("deleteDocs:" + is.getIndexReader().numDeletedDocs());
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				reMgr.release(is);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-	}
-
-	/**
-	 * 鍒犻櫎 浣跨敤trackIndexWriter杩涜鏁版嵁鍒犻櫎锛屼篃涓嶉渶瑕佸叧闂璚riter
-	 * **/
-	public void delete(String productid) {
-		try {
-
-			trackingIndexWriter.deleteDocuments(new Term("id", productid));
-		} catch (Exception e) {
-			logger.error("Lucene鍒犻櫎绱㈠紩鏃跺紓甯�:" + e.getMessage());
-			e.printStackTrace();
-		}
-	}
-
-	/**
-	 * 淇敼 浣跨敤trackIndexWriter杩涜淇敼锛屼笉闇�瑕佸叧闂瓀riter
-	 * **/
-	public void update(ProductIndex ldata) {
-		try {
-			Document doc = new Document();
-			/*
-			 * Lucene骞舵病鏈夋彁渚涙洿鏂帮紝杩欓噷鐨勬洿鏂版搷浣滃叾瀹炴槸濡備笅涓や釜鎿嶄綔鐨勫悎闆� 鍏堝垹闄や箣鍚庡啀娣诲姞
-			 */
-			doc.add(new StringField("id", ldata.getProductid().toString(), Store.YES)); // productid
-			doc.add(new TextField("content", ldata.getTitle(), Store.YES)); // 浜у搧鏍囬
-
-			trackingIndexWriter.updateDocument(new Term("id", ldata.getProductid().toString()), doc);
-		} catch (Exception e) {
-			logger.error("Lucene鏇存柊绱㈠紩鏃跺紓甯�:" + e.getMessage());
-			e.printStackTrace();
-		}
-	}
+	
 
 	
 
@@ -254,41 +131,24 @@ public class NearRealTimeSearch {
 		return is;
 	}
 
-	/**
-	 * 
-	 */
-//	public void close() {
-//		crt.interrupt();
-//		crt.close();
-//		try {
-//			writer.commit();
-//			writer.close();
-//
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-//	}
+	
 
 	public List<ProductIndex> search(String text ,int pageIndex,int pageSize) throws IOException {
 		IndexSearcher is = getSearcher();
-		BooleanQuery booleanquery = new BooleanQuery();
+		// ----------设置过滤器------------------------------------------------
+		BooleanQuery booleanquery = new BooleanQuery(); 
 		BooleanQuery hitQuery = new BooleanQuery();
 
 		if (stopWordSet == null || stopWordSet.size() <= 0)
 			initStopWord();
-		
 		
 		if (!ObjectUtils.isEmpty(text)) { 
 			// 创建分词对象
 			StringReader sr = new StringReader(text);
 			IKSegmenter ik = new IKSegmenter(sr, false);
 			Lexeme lex = null;
-			Query squery = new TermQuery(new Term("title", text));
-			hitQuery.add(squery, Occur.SHOULD);
-			squery.setBoost(1000000.0f);
-			booleanquery.add(squery, Occur.SHOULD);
-			lex = ik.next();
-			while (lex != null) { 
+		
+			while ((lex = ik.next())  != null) { 
 				// 去除停用词
 				if (stopWordSet.contains(lex.getLexemeText())) {
 					continue;

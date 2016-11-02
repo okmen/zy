@@ -13,7 +13,6 @@ public class FileIndexUtils {
 	private Log logger = LogFactory.getLog(this.getClass());
 	public  Directory getDirectory()
 	{
-		
 		File indexDir = new File(AppSettingUtil.getSingleValue("luceneIndex"));
 		Directory fsDirectory=null;
 		try {
