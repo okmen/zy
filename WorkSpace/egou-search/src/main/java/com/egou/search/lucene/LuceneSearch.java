@@ -64,91 +64,47 @@ import org.apache.lucene.util.Version;
 import org.wltea.analyzer.core.IKSegmenter;
 import org.wltea.analyzer.core.Lexeme;
 
-
 //import com.egou.search.service.ILuceneSerive;
 import com.egou.search.vo.ProductIndex;
 import com.egou.utils.DateUtils;
 import com.egou.utils.ObjectUtils;
 import com.egou.utils.ParseHelper;
 
-public class NearRealTimeSearch extends LuceneCommon{
+public class LuceneSearch extends LuceneCommon {
 
-	/** nrt init **/
-	private TrackingIndexWriter trackingIndexWriter = null;
-	private ReferenceManager<IndexSearcher> reMgr = null;// 绫讳技浜嶭ucene3.x涓殑NrtManager
-	private ControlledRealTimeReopenThread<IndexSearcher> crt = null;
-//	private Log logger = LogFactory.getLog(this.getClass());
-	private Set<String> stopWordSet = null;
-
-	// 
-	public NearRealTimeSearch() {}
-
+	public LuceneSearch() {}
 
 	/**
-	 * 建立索引 要实现search nrt,需要使用TrackIndexWriter保存document，同时Writer也不需要关闭。
+	 * 创建索引查询 IndexSearch
 	 * 
-	 * **/
-	public void index(List<ProductIndex> ids) throws IOException {
-
-		try {
-			if (ids == null || ids.size() <= 0)
-				return;
-			for (int i = 0; i < ids.size(); i++) {
-				Document doc = new Document();
-				ProductIndex ldata = ids.get(i);
-				try {
-					doc.add(new StringField("id", ldata.getProductid().toString(), Store.YES));
-					doc.add(new TextField("title", ldata.getTitle(), Store.YES));
-					
-					if (trackingIndexWriter == null) {
-						// logger.warn("Lucene创建索引时异常，trackingIndexWriter为空");
-						System.out.println("Lucene创建索引时异常，trackingIndexWriter为空");
-						init();
-					}
-					trackingIndexWriter.addDocument(doc);
-				} catch (Exception ex) {
-					// logger.error("Lucene创建索引时异常:" + ex.getMessage());
-					System.out.println("Lucene创建索引时异常:" + ex.getMessage());
-					continue;
-				}
-			}
-		} finally {
-			commit();// 首次创建，提交索引,只有提交后，才会在索引片段中也将信息改变
-		}
-	}
-
-	
-
-	
-
-	/**  创建索引查询 IndexSearch 
-	 * @throws IOException **/
-	public IndexSearcher getSearcher() throws IOException { 
-		if(directory==null)
+	 * @throws IOException
+	 **/
+	public IndexSearcher getSearcher() throws IOException {
+		if (directory == null)
 			directory = new FileIndexUtils().getDirectory();
-		reader = DirectoryReader.open(directory);//读取目录 
-		IndexSearcher is = new IndexSearcher(reader);;
+		reader = DirectoryReader.open(directory);// 读取目录
+		IndexSearcher is = new IndexSearcher(reader);
+		;
 		return is;
 	}
 
 	
-
-	public List<ProductIndex> search(String text ,int pageIndex,int pageSize) throws IOException {
+	public List<ProductIndex> search(String text, int pageIndex, int pageSize) throws IOException {
 		IndexSearcher is = getSearcher();
 		// ----------设置过滤器------------------------------------------------
-		BooleanQuery booleanquery = new BooleanQuery(); 
+		BooleanQuery booleanquery = new BooleanQuery();
 		BooleanQuery hitQuery = new BooleanQuery();
 
 		if (stopWordSet == null || stopWordSet.size() <= 0)
 			initStopWord();
-		
-		if (!ObjectUtils.isEmpty(text)) { 
+
+		if (!ObjectUtils.isEmpty(text)) {
 			// 创建分词对象
 			StringReader sr = new StringReader(text);
 			IKSegmenter ik = new IKSegmenter(sr, false);
 			Lexeme lex = null;
-		
-			while ((lex = ik.next())  != null) { 
+
+			while ((lex = ik.next()) != null) {
 				// 去除停用词
 				if (stopWordSet.contains(lex.getLexemeText())) {
 					continue;
@@ -173,23 +129,20 @@ public class NearRealTimeSearch extends LuceneCommon{
 		int totalNum = topDocs.totalHits;
 		int begin = pageSize * (pageIndex - 1);
 		int end = Math.min(begin + pageSize, docs.length);
-		
-		List<ProductIndex> resultList=new ArrayList<ProductIndex>();
+
+		List<ProductIndex> resultList = new ArrayList<ProductIndex>();
 		for (int i = begin; i < end; i++) {
 			ScoreDoc scdoc = docs[i];
 			Document document = is.doc(scdoc.doc);
-			ProductIndex index=new ProductIndex();
+			ProductIndex index = new ProductIndex();
 			index.setProductid(ParseHelper.toLong(document.get("id")));
 			index.setTitle(document.get("title"));
-//			index.setTitle(document.get("createtime"));
+			// index.setTitle(document.get("createtime"));
 			resultList.add(index);
 		}
-		try {
-			reader.close();//关闭资源    
-	        directory.close();//关闭连接 
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		reader.close();// 关闭资源
+		directory.close();// 关闭连接
+
 		return resultList;
 	}
 

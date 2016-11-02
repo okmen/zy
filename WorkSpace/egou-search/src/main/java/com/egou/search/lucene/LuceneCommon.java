@@ -23,38 +23,37 @@ import org.apache.lucene.util.Version;
 import com.egou.utils.ObjectUtils;
 
 public class LuceneCommon {
-
 	/**
 	 * lucene版本
 	 */
-	static Version Lucene_Version = Version.LUCENE_4_10_4;
+	protected static Version Lucene_Version = Version.LUCENE_4_10_4;
 	/**
 	 * 索引文件地址
 	 */
-	Directory directory = null;
+	protected Directory directory = null;
 	/**
 	 * 写入索引
 	 */
-	IndexWriter writer = null;
+	protected IndexWriter writer = null;
 	/**
 	 * 读取索引文件
 	 */
-	IndexReader reader;
+	protected IndexReader reader;
 	/**
 	 * 读入停用词文件 路径
 	 */
-	String stopWordTablePath;
+	protected String stopWordTablePath;
 	/**
 	 * 读入停用词文件名称
 	 */
-	String stopWordTablename = "ChineseStopWord.txt";
+	protected String stopWordTablename = "ChineseStopWord.txt";
 
 	/** nrt init **/
-	TrackingIndexWriter trackingIndexWriter = null;
-	ReferenceManager<IndexSearcher> reMgr = null;//
-	ControlledRealTimeReopenThread<IndexSearcher> crt = null;
+	protected TrackingIndexWriter trackingIndexWriter = null;
+	protected ReferenceManager<IndexSearcher> reMgr = null;//
+	protected ControlledRealTimeReopenThread<IndexSearcher> crt = null;
 	// private Log logger = LogFactory.getLog(this.getClass());
-	Set<String> stopWordSet = null;
+	protected Set<String> stopWordSet = null;
 
 	/**
 	 * 定期提交内存中得索引到硬盘上，防止丢失
