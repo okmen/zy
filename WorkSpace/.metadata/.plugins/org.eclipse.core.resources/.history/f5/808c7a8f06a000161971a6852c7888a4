@@ -1,0 +1,11 @@
+package com.egou.search.service;
+
+import java.util.List;
+import com.egou.bean.PProduct;
+
+public interface ILuceneSerive {
+
+	int getUser();
+	
+	List<PProduct> findAll();
+}

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<interfaces>
+  <interface>
+    <id>1003</id>
+    <contents>
+        <content>
+            <name>彩票</name>
+            <imageurl>http://base3.okimgs.com/images/icon_ticket.png</imageurl>
+            <weburl>http://m.okwei.com/App/Cx_transit.aspx</weburl>
+            <pubtime>2014-07-26 00:00:00</pubtime>
+            <islogin>1</islogin>
+         </content>
+    </contents>
+  </interface>
+  <interface>
+    <id>1001</id>
+    <contents>
+      <content>
+        <name>彩票</name>
+        <imageurl>http://base3.okimgs.com/images/icon_ticket.png</imageurl>
+        <weburl>http://m.okwei.com/App/Cx_transit.aspx</weburl>
+        <pubtime>2014-07-26 00:00:00</pubtime>
+        <islogin>1</islogin>
+      </content>
+    </contents>
+  </interface>
+  <interface>
+    <id>1004</id><!--首页轮播  -->
+    <contents>
+      <content>
+        <name>image-720-1280</name>
+        <imageurl>http://base.okwei.com/images/app-login-af720-1280-1.png</imageurl>
+        <weburl></weburl>
+        <pubtime>2014-09-22 00:00:00</pubtime>
+        <islogin>1</islogin>
+      </content>
+      <content>
+        <name>image-720-1280</name>
+        <imageurl>http://base.okwei.com/images/app-login-af720-1280-2.png</imageurl>
+        <weburl></weburl>
+        <pubtime>2014-09-22 00:00:00</pubtime>
+        <islogin>1</islogin>
+      </content>
+    </contents>
+  </interface>
+</interfaces>
+

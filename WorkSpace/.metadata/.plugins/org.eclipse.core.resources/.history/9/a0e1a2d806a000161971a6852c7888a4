@@ -1,0 +1,19 @@
+package com.egou.search.service.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.egou.bean.PProduct;
+import com.egou.dao.PProductMapper;
+import com.egou.search.service.ILuceneSerive;
+
+public class LuceneService implements ILuceneSerive{
+	
+	@Autowired
+	private PProductMapper productDao;
+	
+	public List<PProduct> findAll(){
+		return null;
+	}
+}

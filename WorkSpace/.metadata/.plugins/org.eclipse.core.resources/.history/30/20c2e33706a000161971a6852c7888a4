@@ -1,0 +1,5 @@
+package com.egou.search.service;
+
+public interface ILuceneSerive {
+
+}

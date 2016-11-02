@@ -1,0 +1,5 @@
+package com.egou.search.service.impl;
+
+public class LuceneService {
+
+}

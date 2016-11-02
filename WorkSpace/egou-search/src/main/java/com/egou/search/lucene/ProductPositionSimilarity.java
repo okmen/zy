@@ -1,0 +1,31 @@
+package com.egou.search.lucene;
+
+import org.apache.lucene.index.FieldInvertState;
+import org.apache.lucene.search.similarities.DefaultSimilarity;
+
+public class ProductPositionSimilarity extends DefaultSimilarity {
+
+	public float coord(int overlap, int maxOverlap) {
+		float overlap2 = (float) Math.pow(2, overlap);
+		float maxOverlap2 = (float) Math.pow(2, maxOverlap);
+		return (overlap2 / maxOverlap2);
+	}
+
+	public float computeNorm(String field, FieldInvertState state) {
+		final int numTerms;
+		if (discountOverlaps)
+			numTerms = state.getLength() - state.getNumOverlap();
+		else
+			numTerms = state.getLength();
+		return (state.getBoost() * lengthNorm(field, numTerms));
+	}
+
+	public float lengthNorm(String fieldName, int numTerms) {
+		return (float) (1.0 / Math.sqrt(numTerms));
+		// return 1.0f;
+	}
+
+	public float queryNorm(float sumOfSquaredWeights) {
+		return (float) (1.0 / Math.sqrt(sumOfSquaredWeights));
+	}
+}

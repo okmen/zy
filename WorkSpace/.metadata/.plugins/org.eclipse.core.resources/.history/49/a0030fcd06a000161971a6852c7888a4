@@ -1,0 +1,14 @@
+package com.egou.search.service.impl;
+
+import java.util.List;
+
+import com.egou.bean.PProduct;
+import com.egou.search.service.ILuceneSerive;
+
+public class LuceneService implements ILuceneSerive{
+
+	
+	public List<PProduct> findAll(){
+		return null;
+	}
+}

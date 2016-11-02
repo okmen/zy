@@ -1,0 +1,23 @@
+package com.egou.search.service.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.stereotype.Service;
+//import org.springframework.transaction.annotation.Transactional;
+
+import com.egou.bean.PProduct;
+import com.egou.dao.PProductMapper;
+import com.egou.search.service.ILuceneSerive;
+
+//@Service("luceneService")
+//@Transactional(rollbackFor={RuntimeException.class, Exception.class})
+public class LuceneService implements ILuceneSerive{
+	
+	@Autowired
+	private PProductMapper productDao;
+	
+	public List<PProduct> findAll(){
+		return productDao.findAll();
+	}
+}

@@ -1,0 +1,22 @@
+package com.egou.search.service;
+
+import java.io.IOException;
+import java.util.List;
+
+import com.egou.bean.PProduct;
+import com.egou.search.vo.ProductIndex;
+
+public interface ILuceneSerive {
+
+	/**
+	 * 获取产品列表
+	 * @return
+	 */
+	List<PProduct> findAll();
+	/**
+	 * 创建索引
+	 */
+	void createIndex();
+	
+	public List<ProductIndex> find_Products(String title,int index,int size) throws IOException;
+}
