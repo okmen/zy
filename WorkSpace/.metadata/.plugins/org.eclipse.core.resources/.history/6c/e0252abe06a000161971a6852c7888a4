@@ -1,7 +1,0 @@
-package com.egou.search.service.impl;
-
-import com.egou.search.service.ILuceneSerive;
-
-public class LuceneService implements ILuceneSerive{
-
-}
