@@ -3,6 +3,8 @@ package com.egou.dao;
 import java.util.List;
 
 import com.egou.bean.PProduct;
+import com.egou.vo.product.SearchParam;
+import com.github.pagehelper.PageHelper;
 
 public interface PProductMapper {
 	
@@ -22,4 +24,10 @@ public interface PProductMapper {
      * @return
      */
     List<PProduct> findAll();
+    /**
+     * 产品搜索
+     * @param param
+     * @return
+     */
+    List<PProduct> find_PProducts(SearchParam param);
 }
