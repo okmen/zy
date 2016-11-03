@@ -10,9 +10,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.egou.bean.PProduct;
 import com.egou.search.service.ILuceneSerive;
 import com.egou.search.vo.ProductIndex;
 import com.egou.utils.JsonUtils;
+import com.egou.vo.product.SearchParam;
+import com.github.pagehelper.PageInfo;
 
 @Controller
 @RequestMapping(value = "/search")
@@ -33,6 +36,15 @@ public class SearchController {
 	public String search(String title) throws Exception {
 		List<ProductIndex> list = productDao.find_Products(title, 1, 10);
 		return JsonUtils.objectToJson(list);
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/test", method = { RequestMethod.POST, RequestMethod.GET })
+	public String test(String title,@RequestParam(required = false, defaultValue = "1") int index, @RequestParam(required = false, defaultValue = "10") int size) throws Exception {
+		SearchParam param=new SearchParam();
+		param.setTitle(title);
+		PageInfo<PProduct> pageInfo =productDao.find_PProductslist(param, index,size);
+		return JsonUtils.objectToJson(pageInfo);
 	}
 
 	@ResponseBody

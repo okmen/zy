@@ -1,0 +1,29 @@
+package com.egou.service.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.egou.bean.PProduct;
+import com.egou.dao.PProductMapper;
+import com.egou.service.IProductManageService;
+import com.egou.vo.product.SearchParam;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+
+@Service("productManageService")
+@Transactional(rollbackFor={RuntimeException.class, Exception.class})
+public class ProductManageService implements IProductManageService {
+	
+	@Autowired
+	private PProductMapper productDao;
+	
+	public PageInfo<PProduct> find_PProductslist(SearchParam param, int pageIndex,int size) {
+		PageHelper.startPage(pageIndex,size);
+		List<PProduct> relist=productDao.find_PProducts(param);
+		PageInfo<PProduct> pageInfo=new PageInfo<PProduct>(relist);
+		return pageInfo;
+	}
+}

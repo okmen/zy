@@ -5,6 +5,8 @@ import java.util.List;
 
 import com.egou.bean.PProduct;
 import com.egou.search.vo.ProductIndex;
+import com.egou.vo.product.SearchParam;
+import com.github.pagehelper.PageInfo;
 
 public interface ILuceneSerive {
 
@@ -13,6 +15,8 @@ public interface ILuceneSerive {
 	 * @return
 	 */
 	List<PProduct> findAll();
+	
+	PageInfo<PProduct> find_PProductslist(SearchParam param, int pageIndex,int size);
 	/**
 	 * ´´½¨Ë÷Òý
 	 */

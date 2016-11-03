@@ -1,0 +1,15 @@
+package com.egou.service;
+
+import com.egou.bean.PProduct;
+import com.egou.vo.ReturnModel;
+import com.egou.vo.product.SearchParam;
+import com.github.pagehelper.PageInfo;
+
+
+
+public interface IProductManageService {
+
+
+	PageInfo<PProduct> find_PProductslist(SearchParam param, int pageIndex,int size);
+	
+}

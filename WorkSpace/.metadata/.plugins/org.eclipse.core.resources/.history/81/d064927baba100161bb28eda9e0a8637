@@ -1,0 +1,21 @@
+package com.egou.vo.product;
+
+
+
+public class searchParam {
+	private Long productid;
+
+	private Long brandid;
+
+	private Integer classid;
+
+	private String title;
+
+	private Long supplieruserid;
+
+	private Long sellerid;
+
+	private Integer status;
+	
+	
+}

@@ -1,0 +1,5 @@
+package com.egou.service.impl;
+
+public class ProductManageService  {
+
+}

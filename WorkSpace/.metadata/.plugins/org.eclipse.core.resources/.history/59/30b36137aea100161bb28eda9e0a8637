@@ -1,0 +1,7 @@
+package com.egou.service.impl;
+
+import com.egou.service.IProductManageService;
+
+public class ProductManageService implements IProductManageService {
+
+}

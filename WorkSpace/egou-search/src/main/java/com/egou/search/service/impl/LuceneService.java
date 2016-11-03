@@ -1,10 +1,11 @@
 package com.egou.search.service.impl;
 
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import javax.annotation.Resource;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -19,9 +20,13 @@ import com.egou.search.lucene.CreateLuceneIndex;
 import com.egou.search.lucene.LuceneSearch;
 import com.egou.search.service.ILuceneSerive;
 import com.egou.search.vo.ProductIndex;
+import com.egou.service.IProductManageService;
 import com.egou.utils.HttpRequestHelper;
 import com.egou.utils.JsonUtils;
 import com.egou.utils.ParseHelper;
+import com.egou.vo.product.SearchParam;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 
 @Service("luceneService")
 @Transactional(rollbackFor = { RuntimeException.class, Exception.class })
@@ -30,6 +35,8 @@ public class LuceneService implements ILuceneSerive {
 	@Autowired
 	private PProductMapper productDao;
 
+	@Resource(name="productManageService")
+	private IProductManageService productService;
 	/**
 	 * 创建索引类
 	 */
@@ -38,6 +45,17 @@ public class LuceneService implements ILuceneSerive {
 	public List<PProduct> findAll() {
 		return productDao.findAll();
 	}
+	
+	
+	public PageInfo<PProduct> find_PProductslist(SearchParam param, int pageIndex,int size) {
+//		PageHelper.startPage(pageIndex,size);
+//		List<PProduct> relist=productDao.find_PProducts(param);
+//		PageInfo<PProduct> pageInfo=new PageInfo<PProduct>(relist);
+//		return pageInfo;
+		return productService.find_PProductslist(param, pageIndex, size);
+	}
+	
+
 
 	public void createIndex() {
 		List<PProduct> proList = productDao.findAll();

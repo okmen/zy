@@ -1,0 +1,77 @@
+package com.egou.vo.product;
+
+
+
+public class searchParam {
+	private Long productid;
+
+	private Long brandid;
+
+	private Integer classid;
+
+	private String title;
+
+	private Long supplieruserid;
+
+	private Long sellerid;
+
+	private Integer status;
+
+	public Long getProductid() {
+		return productid;
+	}
+
+	public void setProductid(Long productid) {
+		this.productid = productid;
+	}
+
+	public Long getBrandid() {
+		return brandid;
+	}
+
+	public void setBrandid(Long brandid) {
+		this.brandid = brandid;
+	}
+
+	public Integer getClassid() {
+		return classid;
+	}
+
+	public void setClassid(Integer classid) {
+		this.classid = classid;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public Long getSupplieruserid() {
+		return supplieruserid;
+	}
+
+	public void setSupplieruserid(Long supplieruserid) {
+		this.supplieruserid = supplieruserid;
+	}
+
+	public Long getSellerid() {
+		return sellerid;
+	}
+
+	public void setSellerid(Long sellerid) {
+		this.sellerid = sellerid;
+	}
+
+	public Integer getStatus() {
+		return status;
+	}
+
+	public void setStatus(Integer status) {
+		this.status = status;
+	}
+	
+	
+}
