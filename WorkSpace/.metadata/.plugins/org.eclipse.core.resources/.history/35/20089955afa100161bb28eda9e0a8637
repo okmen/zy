@@ -1,6 +1,7 @@
 package com.egou.service;
 
 import com.egou.bean.PProduct;
+import com.egou.vo.ReturnModel;
 import com.egou.vo.product.SearchParam;
 import com.github.pagehelper.PageInfo;
 
