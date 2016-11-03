@@ -10,20 +10,16 @@ import com.github.pagehelper.PageInfo;
 
 public interface ILuceneSerive {
 
-	/**
-	 * 获取产品列表
-	 * @return
-	 */
-	List<PProduct> findAll();
+	
 	
 	PageInfo<PProduct> find_PProductslist(SearchParam param, int pageIndex,int size);
 	/**
 	 * 创建索引
 	 */
-	void createIndex();
+	void createIndex(List<PProduct> proList);
 	
 	/**
-	 * 查询商品列表
+	 * Lucene 查询商品列表
 	 * @param title
 	 * @param index
 	 * @param size
