@@ -29,6 +29,11 @@
 		from p_product
 		where ProductID = #{productid,jdbcType=BIGINT}
 	</select>
+	<select id="findAll" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from p_product
+	</select>
 	<select id="find_PProducts" resultMap="BaseResultMap" parameterType="com.egou.vo.product.SearchParam">
 		select
 		<include refid="Base_Column_List" />

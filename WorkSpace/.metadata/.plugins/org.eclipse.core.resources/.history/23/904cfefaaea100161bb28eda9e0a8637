@@ -19,7 +19,11 @@ public interface PProductMapper {
     int updateByPrimaryKeySelective(PProduct record);
 
     int updateByPrimaryKey(PProduct record);
-   
+    /**
+     * 获取所有产品
+     * @return
+     */
+    List<PProduct> findAll();
     /**
      * 产品搜索
      * @param param

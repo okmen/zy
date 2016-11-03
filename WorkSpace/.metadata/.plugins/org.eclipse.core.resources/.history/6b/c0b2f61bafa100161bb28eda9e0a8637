@@ -42,7 +42,7 @@ public class LuceneService implements ILuceneSerive {
 	private CreateLuceneIndex create;
 
 	public List<PProduct> findAll() {
-		return productDao.find_PProducts(null);
+		return productDao.findAll();
 	}
 	
 	
@@ -57,7 +57,7 @@ public class LuceneService implements ILuceneSerive {
 
 
 	public void createIndex() {
-		List<PProduct> proList = productDao.find_PProducts(null);
+		List<PProduct> proList = productDao.findAll();
 		if (proList != null && proList.size() > 0) {
 			List<ProductIndex> productIndexs = new ArrayList<ProductIndex>();
 			for (PProduct pp : proList) {
