@@ -41,23 +41,15 @@ public class LuceneService implements ILuceneSerive {
 	 */
 	private CreateLuceneIndex create;
 
-	public List<PProduct> findAll() {
-		return productDao.find_PProducts(null);
-	}
 	
 	
 	public PageInfo<PProduct> find_PProductslist(SearchParam param, int pageIndex,int size) {
-//		PageHelper.startPage(pageIndex,size);
-//		List<PProduct> relist=productDao.find_PProducts(param);
-//		PageInfo<PProduct> pageInfo=new PageInfo<PProduct>(relist);
-//		return pageInfo;
 		return productService.find_PProductslist(param, pageIndex, size);
 	}
 	
 
-
-	public void createIndex() {
-		List<PProduct> proList = productDao.find_PProducts(null);
+	
+	public void createIndex(List<PProduct> proList) {
 		if (proList != null && proList.size() > 0) {
 			List<ProductIndex> productIndexs = new ArrayList<ProductIndex>();
 			for (PProduct pp : proList) {
