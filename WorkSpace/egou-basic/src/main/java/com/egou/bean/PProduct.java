@@ -1,8 +1,12 @@
 package com.egou.bean;
 
-import java.math.BigDecimal;
 import java.util.Date;
 
+/**
+ * 用户表
+ * @author Administrator
+ *
+ */
 public class PProduct {
     private Long productid;
 
