@@ -27,17 +27,43 @@ public class SearchController {
 	@ResponseBody
 	@RequestMapping(value = "/createIndex", method = { RequestMethod.POST, RequestMethod.GET })
 	public String createIndex() throws Exception {
-		productDao.createIndex();
-		return JsonUtils.objectToJson("dssds");
+		SearchParam param=new SearchParam();
+		int index=1;
+		int size=100;
+		PageInfo<PProduct> pageInfo =productDao.find_PProductslist(param,index,size);
+		if(pageInfo.getList()!=null&&pageInfo.getList().size()>0){
+			for(;index<=pageInfo.getPages();index++){
+				PageInfo<PProduct> list =productDao.find_PProductslist(null,index,size);
+				if(list.getList()!=null&&list.getList().size()>0){
+					productDao.createIndex(list.getList());
+				}
+			}
+		}
+		return JsonUtils.objectToJson(index*size+"条数据处理完");
 	}
 
+	/**
+	 * lucene搜索 查询
+	 * @param title
+	 * @return
+	 * @throws Exception
+	 */
 	@ResponseBody
 	@RequestMapping(value = "/search", method = { RequestMethod.POST, RequestMethod.GET })
-	public String search(String title) throws Exception {
-		List<ProductIndex> list = productDao.find_Products(title, 1, 10);
+	public String search(String title,@RequestParam(required = false, defaultValue = "1") int index, @RequestParam(required = false, defaultValue = "10") int size) throws Exception {
+		List<ProductIndex> list = productDao.find_Products(title, index, size);
 		return JsonUtils.objectToJson(list);
 	}
 	
+	
+	/**
+	 * 测试
+	 * @param title
+	 * @param index
+	 * @param size
+	 * @return
+	 * @throws Exception
+	 */
 	@ResponseBody
 	@RequestMapping(value = "/test", method = { RequestMethod.POST, RequestMethod.GET })
 	public String test(String title,@RequestParam(required = false, defaultValue = "1") int index, @RequestParam(required = false, defaultValue = "10") int size) throws Exception {
@@ -47,6 +73,13 @@ public class SearchController {
 		return JsonUtils.objectToJson(pageInfo);
 	}
 
+	/**
+	 * 拿取 okwei产品数据
+	 * @param index
+	 * @param size
+	 * @return
+	 * @throws Exception
+	 */
 	@ResponseBody
 	@RequestMapping(value = "/proInit", method = { RequestMethod.POST, RequestMethod.GET })
 	public String proInit(@RequestParam(required = false, defaultValue = "1") int index, @RequestParam(required = false, defaultValue = "10") int size) throws Exception {
