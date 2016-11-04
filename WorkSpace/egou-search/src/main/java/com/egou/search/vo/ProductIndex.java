@@ -9,7 +9,9 @@ public class ProductIndex {
 
 	    private Long brandid;
 
-	    private Integer classid;
+	    private Integer cateIdOne;
+	    private Integer cateIdTwo;
+	    private Integer cateIdThree;
 
 	    private String title;
 
@@ -43,12 +45,30 @@ public class ProductIndex {
 			this.brandid = brandid;
 		}
 
-		public Integer getClassid() {
-			return classid;
+		
+
+		public Integer getCateIdOne() {
+			return cateIdOne;
 		}
 
-		public void setClassid(Integer classid) {
-			this.classid = classid;
+		public void setCateIdOne(Integer cateIdOne) {
+			this.cateIdOne = cateIdOne;
+		}
+
+		public Integer getCateIdTwo() {
+			return cateIdTwo;
+		}
+
+		public void setCateIdTwo(Integer cateIdTwo) {
+			this.cateIdTwo = cateIdTwo;
+		}
+
+		public Integer getCateIdThree() {
+			return cateIdThree;
+		}
+
+		public void setCateIdThree(Integer cateIdThree) {
+			this.cateIdThree = cateIdThree;
 		}
 
 		public String getTitle() {

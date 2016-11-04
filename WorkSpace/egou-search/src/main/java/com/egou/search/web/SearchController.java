@@ -11,9 +11,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.egou.bean.PProduct;
+import com.egou.bean.PProductcate;
+import com.egou.search.service.ICommonService;
 import com.egou.search.service.ILuceneSerive;
 import com.egou.search.vo.ProductIndex;
 import com.egou.utils.JsonUtils;
+import com.egou.utils.ParseHelper;
 import com.egou.vo.product.SearchParam;
 import com.github.pagehelper.PageInfo;
 
@@ -23,21 +26,24 @@ public class SearchController {
 
 	@Resource(name = "luceneService")
 	private ILuceneSerive productDao;
+	
+	@Resource(name = "commonService")
+	private ICommonService cateService;
 
 	@ResponseBody
 	@RequestMapping(value = "/createIndex", method = { RequestMethod.POST, RequestMethod.GET })
-	public String createIndex() throws Exception {
+	public String createIndex(@RequestParam(required = false, defaultValue = "1") int index, @RequestParam(required = false, defaultValue = "1000") int size) throws Exception {
 		SearchParam param=new SearchParam();
-		int index=1;
-		int size=100;
+//		int index=1;
+//		int size=1000;
 		PageInfo<PProduct> pageInfo =productDao.find_PProductslist(param,index,size);
 		if(pageInfo.getList()!=null&&pageInfo.getList().size()>0){
-			for(;index<=pageInfo.getPages();index++){
+//			for(;index<=pageInfo.getPages();index++){
 				PageInfo<PProduct> list =productDao.find_PProductslist(null,index,size);
 				if(list.getList()!=null&&list.getList().size()>0){
 					productDao.createIndex(list.getList());
 				}
-			}
+//			}
 		}
 		return JsonUtils.objectToJson(index*size+"条数据处理完");
 	}
@@ -66,11 +72,18 @@ public class SearchController {
 	 */
 	@ResponseBody
 	@RequestMapping(value = "/test", method = { RequestMethod.POST, RequestMethod.GET })
-	public String test(String title,@RequestParam(required = false, defaultValue = "1") int index, @RequestParam(required = false, defaultValue = "10") int size) throws Exception {
-		SearchParam param=new SearchParam();
-		param.setTitle(title);
-		PageInfo<PProduct> pageInfo =productDao.find_PProductslist(param, index,size);
-		return JsonUtils.objectToJson(pageInfo);
+	public String test(String title,@RequestParam(required = false, defaultValue = "1") int index, @RequestParam(required = false, defaultValue = "10") int size
+			,String catename,String parent,String step
+			) throws Exception {
+//		SearchParam param=new SearchParam();
+//		param.setTitle(title);
+//		PageInfo<PProduct> pageInfo =productDao.find_PProductslist(param, index,size);
+		PProductcate cate=new PProductcate();
+		cate.setCatename(catename);
+		cate.setStep(ParseHelper.toInt(step));
+		cate.setParentid(ParseHelper.toInt(parent)); 
+		cateService.addProductCate(cate); 
+		return JsonUtils.objectToJson("cc");
 	}
 
 	/**

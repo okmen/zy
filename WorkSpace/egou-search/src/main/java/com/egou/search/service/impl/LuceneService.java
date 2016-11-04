@@ -15,7 +15,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.egou.bean.PProduct;
+import com.egou.bean.PProductcate;
 import com.egou.dao.PProductMapper;
+import com.egou.dao.PProductcateMapper;
 import com.egou.search.lucene.CreateLuceneIndex;
 import com.egou.search.lucene.LuceneSearch;
 import com.egou.search.service.ILuceneSerive;
@@ -33,6 +35,8 @@ public class LuceneService implements ILuceneSerive {
 
 	@Autowired
 	private PProductMapper productDao;
+	@Autowired
+	private PProductcateMapper cateDao;
 
 	@Resource(name="productManageService")
 	private IProductManageService productService;
@@ -48,6 +52,25 @@ public class LuceneService implements ILuceneSerive {
 	}
 	
 
+	private ProductIndex cateIndex(ProductIndex mo,int cateId){
+		PProductcate cate= cateDao.selectByPrimaryKey(cateId);
+		if(cate!=null){
+			switch (cate.getStep()) {
+			case 1:
+				mo.setCateIdOne(cate.getCateid());
+				break;
+			case 2:
+				mo.setCateIdTwo(cate.getCateid());
+				break;
+			case 3:
+				mo.setCateIdThree(cate.getCateid());
+				break;
+			default:
+				break;
+			}
+		}
+		return mo; 
+	}
 	
 	public void createIndex(List<PProduct> proList) {
 		if (proList != null && proList.size() > 0) {
@@ -57,6 +80,7 @@ public class LuceneService implements ILuceneSerive {
 				mo.setProductid(pp.getProductid());
 				mo.setTitle(pp.getTitle());
 				mo.setCreatetime(pp.getCreatetime());
+				mo=cateIndex(mo, pp.getClassid());
 				productIndexs.add(mo);
 			}
 			try {
@@ -66,7 +90,6 @@ public class LuceneService implements ILuceneSerive {
 					}
 					create.createIndexs(productIndexs);
 				}
-
 			} catch (IOException e) {
 				System.out.println("插入Lucene索引时出错：" + e.getMessage());
 			}

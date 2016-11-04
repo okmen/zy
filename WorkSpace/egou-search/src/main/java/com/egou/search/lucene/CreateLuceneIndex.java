@@ -50,7 +50,6 @@ public class CreateLuceneIndex extends LuceneCommon{
 	 * 
 	 * **/
 	public void createIndexs(List<ProductIndex> ids) throws IOException {
-
 		try {
 			if (ids == null || ids.size() <= 0)
 				return;
@@ -60,7 +59,9 @@ public class CreateLuceneIndex extends LuceneCommon{
 				try {
 					doc.add(new StringField("id", ldata.getProductid().toString(), Store.YES));
 					doc.add(new TextField("title", ldata.getTitle(), Store.YES));
-					
+					doc.add(new TextField("cateOne",String.valueOf(ldata.getCateIdOne()) , Store.YES));
+					doc.add(new TextField("cateTwo", String.valueOf(ldata.getCateIdTwo()), Store.YES));
+					doc.add(new TextField("cateThree", String.valueOf(ldata.getCateIdThree()), Store.YES));
 					if (trackingIndexWriter == null) {
 						// logger.warn("Lucene创建索引时异常，trackingIndexWriter为空");
 						System.out.println("Lucene创建索引时异常，trackingIndexWriter为空");
