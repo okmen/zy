@@ -64,11 +64,15 @@ import org.apache.lucene.util.Version;
 import org.wltea.analyzer.core.IKSegmenter;
 import org.wltea.analyzer.core.Lexeme;
 
+
+
 //import com.egou.search.service.ILuceneSerive;
 import com.egou.search.vo.ProductIndex;
+import com.egou.search.vo.SearchProductParam;
 import com.egou.utils.DateUtils;
 import com.egou.utils.ObjectUtils;
 import com.egou.utils.ParseHelper;
+import com.github.pagehelper.PageInfo;
 
 public class LuceneSearch extends LuceneCommon {
 
@@ -89,6 +93,82 @@ public class LuceneSearch extends LuceneCommon {
 		return is;
 	}
 
+	public PageInfo<ProductIndex> search(SearchProductParam param ,int pageIndex,int pageSize) throws IOException{
+		PageInfo<ProductIndex>  result=new PageInfo<ProductIndex>();
+		IndexSearcher is = getSearcher();
+		// ----------设置过滤器------------------------------------------------
+		BooleanQuery booleanquery = new BooleanQuery();
+		BooleanQuery hitQuery = new BooleanQuery();
+
+		if (stopWordSet == null || stopWordSet.size() <= 0)
+			initStopWord();
+		if(param==null){
+			param=new SearchProductParam();
+		}
+		if(param.getCateOne()!=null){
+			Query subquery = NumericRangeQuery.newIntRange("cate1", param.getCateOne(), param.getCateOne(), true, true);
+			booleanquery.add(subquery, Occur.MUST);
+		}
+		if(param.getCateTwo()!=null){
+			Query subquery = NumericRangeQuery.newIntRange("cate2", param.getCateTwo(), param.getCateTwo(), true, true);
+			booleanquery.add(subquery, Occur.MUST);
+		}
+		if(param.getCateThree()!=null){
+			Query subquery = NumericRangeQuery.newIntRange("cate3", param.getCateThree(), param.getCateThree(), true, true);
+			booleanquery.add(subquery, Occur.MUST);
+		}
+		if(param.getBrandid()!=null&&param.getBrandid()>0){
+			Query subquery = NumericRangeQuery.newIntRange("brandid", param.getBrandid().intValue(), param.getBrandid().intValue(), true, true);
+			booleanquery.add(subquery, Occur.MUST);
+		}
+		if (!ObjectUtils.isEmpty(param.getTitle())) {
+			// 创建分词对象
+			StringReader sr = new StringReader(param.getTitle());
+			IKSegmenter ik = new IKSegmenter(sr, false);
+			Lexeme lex = null;
+			while ((lex = ik.next()) != null) {
+				// 去除停用词
+				if (stopWordSet.contains(lex.getLexemeText())) {
+					continue;
+				}
+				Query likequery = new TermQuery(new Term("title", lex.getLexemeText()));
+				hitQuery.add(likequery, Occur.SHOULD);
+				if (!param.getTitle().equals(lex.getLexemeText()))
+					likequery.setBoost(0.0f);
+				booleanquery.add(likequery, Occur.SHOULD);
+			}
+		} else {
+			Query likequery = new WildcardQuery(new Term("title", "*"));
+			booleanquery.add(likequery, Occur.MUST);
+		}
+		SortField sortf = new SortField("id", SortField.Type.INT, true);
+		Sort sort = new Sort(new SortField[] { new SortField(null, SortField.Type.SCORE, false), sortf });
+		TopDocs topDocs = is.search(booleanquery, 2000000, sort); // 搜索相似度最高的N条记录
+		ScoreDoc[] docs = topDocs.scoreDocs;
+		// is.search(booleanquery, topCollector);
+		// 查询结果的总数量
+		// int totalNum = topCollector.getTotalHits();
+		int totalNum = topDocs.totalHits;
+		int begin = pageSize * (pageIndex - 1);
+		int end = Math.min(begin + pageSize, docs.length);
+		result.setTotal(totalNum);
+		result.setPages((int)Math.ceil(totalNum/pageSize)); 
+		List<ProductIndex> resultList = new ArrayList<ProductIndex>();
+		for (int i = begin; i < end; i++) {
+			ScoreDoc scdoc = docs[i];
+			Document document = is.doc(scdoc.doc);
+			ProductIndex index = new ProductIndex();
+			index.setProductid(ParseHelper.toLong(document.get("id")));
+			index.setTitle(document.get("title"));
+			// index.setTitle(document.get("createtime"));
+			resultList.add(index);
+		}
+		reader.close();// 关闭资源
+		directory.close();// 关闭连接
+		result.setList(resultList); 
+//		return resultList;
+		return result;
+	}
 	/**
 	 * 搜索
 	 * @param text

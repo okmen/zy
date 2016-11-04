@@ -22,6 +22,7 @@ import com.egou.search.lucene.CreateLuceneIndex;
 import com.egou.search.lucene.LuceneSearch;
 import com.egou.search.service.ILuceneSerive;
 import com.egou.search.vo.ProductIndex;
+import com.egou.search.vo.SearchProductParam;
 import com.egou.service.IProductManageService;
 import com.egou.utils.HttpRequestHelper;
 import com.egou.utils.JsonUtils;
@@ -72,6 +73,9 @@ public class LuceneService implements ILuceneSerive {
 		return mo; 
 	}
 	
+	/**
+	 * ´´½¨Ë÷Òý
+	 */
 	public void createIndex(List<PProduct> proList) {
 		if (proList != null && proList.size() > 0) {
 			List<ProductIndex> productIndexs = new ArrayList<ProductIndex>();
@@ -98,6 +102,12 @@ public class LuceneService implements ILuceneSerive {
 
 	public List<ProductIndex> find_Products(String title, int index, int size) throws IOException {
 		List<ProductIndex> list = new LuceneSearch().search(title, index, size);
+		System.out.println(JsonUtils.objectToJson(list));
+		return list;
+	}
+	
+	public PageInfo<ProductIndex> searchProducts(SearchProductParam param ,int pageIndex,int pageSize) throws IOException{
+		PageInfo<ProductIndex> list = new LuceneSearch().search( param , pageIndex, pageSize);
 		System.out.println(JsonUtils.objectToJson(list));
 		return list;
 	}

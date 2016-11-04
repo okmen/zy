@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.egou.bean.PProduct;
 import com.egou.search.vo.ProductIndex;
+import com.egou.search.vo.SearchProductParam;
 import com.egou.vo.product.SearchParam;
 import com.github.pagehelper.PageInfo;
 
@@ -27,6 +28,16 @@ public interface ILuceneSerive {
 	 * @throws IOException
 	 */
 	List<ProductIndex> find_Products(String title,int index,int size) throws IOException;
+	
+	/**
+	 * ²úÆ·ËÑË÷
+	 * @param param
+	 * @param pageIndex
+	 * @param pageSize
+	 * @return
+	 * @throws IOException
+	 */
+	PageInfo<ProductIndex> searchProducts(SearchProductParam param ,int pageIndex,int pageSize) throws IOException;
 	
 	public void insertInit(int index,int size);
 }
