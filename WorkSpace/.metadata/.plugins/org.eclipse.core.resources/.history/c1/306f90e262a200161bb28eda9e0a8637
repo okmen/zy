@@ -1,0 +1,36 @@
+/**
+ * 绑定enter键
+ */
+$(function() {
+	$("#searchTxt").bind("keydown", EnterSearch);
+})
+function EnterSearch(eventobject) {
+	if (eventobject.keyCode == 13) {
+		search();
+	}
+}
+
+/**
+ * 搜索
+ */
+function search() {
+	var key = $("#searchTxt").val();
+	$.ajax({
+		url : 'search/',
+		async : false,// false不打引号
+		type : 'POST',// POST最好大写
+		dataType : 'json',// 一定注意T是大写的
+		data : {
+			orderid : orderid
+		},
+		success : function(data) {
+			var datas = data.msg; // 成功之后的处理
+			$('#showMessage').text(datas);
+		},
+		error : function(data) {
+			var datas = data.msg; // 失败的处理
+			$('#showMessage').text(datas);
+		}
+	});
+	window.location.href = "search?key=" + key;
+}

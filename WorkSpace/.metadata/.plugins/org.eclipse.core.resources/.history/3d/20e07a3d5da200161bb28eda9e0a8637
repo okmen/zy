@@ -1,0 +1,7 @@
+/**
+ * 
+ */
+function search(){
+	var key=$("#searchTxt").val();
+	window.location.href="search?title="+key; 
+	}

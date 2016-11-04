@@ -1,0 +1,29 @@
+package com.egou.search.service.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.egou.bean.PProductcate;
+import com.egou.dao.PProductMapper;
+import com.egou.dao.PProductcateMapper;
+import com.egou.dao.PSearchkeywordMapper;
+import com.egou.search.service.ICommonService;
+
+@Service("commonService")
+@Transactional(rollbackFor = { RuntimeException.class, Exception.class })
+public class CommonService implements ICommonService{
+
+	@Autowired
+	private PProductcateMapper cateMapper;
+	
+	@Autowired
+	private PProductMapper productDao;
+	
+	@Autowired
+	private PSearchkeywordMapper searcDao;
+	
+	public void addProductCate(PProductcate cate){
+		cateMapper.insert(cate);
+	}
+}

@@ -1,0 +1,7 @@
+/**
+ * 
+ */
+function search(){
+	var key=$("#searchTxt").val();
+		alert(1);
+	}

@@ -1,0 +1,19 @@
+package com.egou.dao;
+
+import com.egou.bean.PSearchkeyword;
+
+public interface PSearchkeywordMapper {
+    int deleteByPrimaryKey(Long wordid);
+
+    int insert(PSearchkeyword record);
+
+    int insertSelective(PSearchkeyword record);
+
+    PSearchkeyword selectByPrimaryKey(Long wordid);
+    
+    PSearchkeyword selectByKeyName(Long wordid);
+
+    int updateByPrimaryKeySelective(PSearchkeyword record);
+
+    int updateByPrimaryKey(PSearchkeyword record);
+}

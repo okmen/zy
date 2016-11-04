@@ -6,29 +6,18 @@ import java.util.List;
 import com.egou.bean.PProduct;
 import com.egou.search.vo.ProductIndex;
 import com.egou.search.vo.SearchProductParam;
-import com.egou.vo.product.SearchParam;
 import com.github.pagehelper.PageInfo;
 
 public interface ILuceneSerive {
 
 	
 	
-	PageInfo<PProduct> find_PProductslist(SearchParam param, int pageIndex,int size);
 	/**
-	 * 创建索引
+	 * lucene 创建索引 
 	 */
 	void createIndex(List<PProduct> proList);
 	
-	/**
-	 * Lucene 查询商品列表
-	 * @param title
-	 * @param index
-	 * @param size
-	 * @return
-	 * @throws IOException
-	 */
-	List<ProductIndex> find_Products(String title,int index,int size) throws IOException;
-	
+
 	/**
 	 * 产品搜索
 	 * @param param
@@ -38,6 +27,10 @@ public interface ILuceneSerive {
 	 * @throws IOException
 	 */
 	PageInfo<ProductIndex> searchProducts(SearchProductParam param ,int pageIndex,int pageSize) throws IOException;
-	
-	public void insertInit(int index,int size);
+	/**
+	 * 初始化产品表 数据（test）
+	 * @param index
+	 * @param size
+	 */
+	void insertInit(int index,int size);
 }

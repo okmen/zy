@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import javax.annotation.Resource;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -21,13 +20,12 @@ import com.egou.dao.PProductcateMapper;
 import com.egou.search.lucene.CreateLuceneIndex;
 import com.egou.search.lucene.LuceneSearch;
 import com.egou.search.service.ILuceneSerive;
+import com.egou.search.utils_search.ImgDomain;
 import com.egou.search.vo.ProductIndex;
 import com.egou.search.vo.SearchProductParam;
-import com.egou.service.IProductManageService;
 import com.egou.utils.HttpRequestHelper;
 import com.egou.utils.JsonUtils;
 import com.egou.utils.ParseHelper;
-import com.egou.vo.product.SearchParam;
 import com.github.pagehelper.PageInfo;
 
 @Service("luceneService")
@@ -39,8 +37,7 @@ public class LuceneService implements ILuceneSerive {
 	@Autowired
 	private PProductcateMapper cateDao;
 
-	@Resource(name="productManageService")
-	private IProductManageService productService;
+
 	/**
 	 * 创建索引类
 	 */
@@ -48,9 +45,9 @@ public class LuceneService implements ILuceneSerive {
 
 	
 	
-	public PageInfo<PProduct> find_PProductslist(SearchParam param, int pageIndex,int size) {
-		return productService.find_PProductslist(param, pageIndex, size);
-	}
+//	public PageInfo<PProduct> find_PProductslist(SearchParam param, int pageIndex,int size) {
+//		return productService.find_PProductslist(param, pageIndex, size);
+//	}
 	
 
 	private ProductIndex cateIndex(ProductIndex mo,int cateId){
@@ -100,15 +97,16 @@ public class LuceneService implements ILuceneSerive {
 		}
 	}
 
-	public List<ProductIndex> find_Products(String title, int index, int size) throws IOException {
-		List<ProductIndex> list = new LuceneSearch().search(title, index, size);
-		System.out.println(JsonUtils.objectToJson(list));
-		return list;
-	}
+	
 	
 	public PageInfo<ProductIndex> searchProducts(SearchProductParam param ,int pageIndex,int pageSize) throws IOException{
 		PageInfo<ProductIndex> list = new LuceneSearch().search( param , pageIndex, pageSize);
-		System.out.println(JsonUtils.objectToJson(list));
+		for (ProductIndex pp : list.getList()) {
+			PProduct product= productDao.selectByPrimaryKey(pp.getProductid());
+			if(product!=null){
+				pp.setDefaultimg(ImgDomain.GetFullImgUrl(product.getDefaultimg(), 75)); 
+			}
+		}
 		return list;
 	}
 	

@@ -1,0 +1,73 @@
+package com.egou.search.service.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.egou.bean.PProduct;
+import com.egou.bean.PProductcate;
+import com.egou.bean.PSearchkeyword;
+import com.egou.dao.PProductMapper;
+import com.egou.dao.PProductcateMapper;
+import com.egou.dao.PSearchkeywordMapper;
+import com.egou.search.service.ICommonService;
+import com.egou.vo.product.SearchParam;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+
+@Service("commonService")
+@Transactional(rollbackFor = { RuntimeException.class, Exception.class })
+public class CommonService implements ICommonService{
+
+	@Autowired
+	private PProductcateMapper cateMapper;
+	
+	@Autowired
+	private PProductMapper productDao;
+	
+	@Autowired
+	private PSearchkeywordMapper searcDao;
+	
+	
+	/**
+	 * 新增产品分类
+	 */
+	public void addProductCate(PProductcate cate){
+		cateMapper.insert(cate);
+	}
+	
+	public PageInfo<PProduct> find_PProductslist(SearchParam param, int pageIndex,int size) {
+	return productService.find_PProductslist(param, pageIndex, size);
+}
+	
+	/**
+	 * 收录 搜索关键词
+	 * @param key
+	 * @throws Exception
+	 */
+	public void addKeyWord(String key)throws Exception{
+		PSearchkeyword model= searcDao.selectByKeyName(key);
+		if(model!=null){
+			model.setCount(model.getCount()+1);
+			searcDao.updateByPrimaryKey(model);
+		}else {
+			model=new PSearchkeyword();
+			model.setKeywords(key);
+			model.setCount(1l);
+			searcDao.insert(model);
+		}
+	}
+	
+	/**
+	 * 获取热门搜索
+	 * @param key
+	 * @return
+	 */
+	public List<PSearchkeyword> find_keys(String key){
+		PageHelper.startPage(1, 6," Count desc");
+		List<PSearchkeyword> list=searcDao.find_PSearchkeywords(key);
+		return list;
+	}
+}

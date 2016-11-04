@@ -1,0 +1,8 @@
+/**
+ * 
+ */
+$("#searchTxt :input").bind("keydown", search);
+function search(eventobject){
+	var key=$("#searchTxt").val();
+	window.location.href="search?key="+key; 
+	}

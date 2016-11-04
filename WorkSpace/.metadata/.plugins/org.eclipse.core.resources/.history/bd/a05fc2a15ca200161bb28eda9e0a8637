@@ -1,0 +1,8 @@
+/**
+ * 
+ */
+$(function(){
+	function search(){
+		alert(1);
+	}
+})

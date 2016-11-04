@@ -1,0 +1,13 @@
+/**
+ * 
+ */
+$("#searchTxt :input").bind("keydown", search);
+function EnterSearch(eventobject) {
+	    if (eventobject.keyCode == 13) {
+	        search();
+	    }
+	}
+function search(){
+	var key=$("#searchTxt").val();
+	window.location.href="search?key="+key; 
+	}

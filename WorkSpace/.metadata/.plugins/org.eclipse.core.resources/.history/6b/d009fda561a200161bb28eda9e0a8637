@@ -1,0 +1,19 @@
+/**
+ * 绑定enter键
+ */
+$(function() {
+	$("#searchTxt").bind("keydown", EnterSearch);
+})
+function EnterSearch(eventobject) {
+	if (eventobject.keyCode == 13) {
+		search();
+	}
+}
+
+/**
+ * 搜索
+ */
+function search() {
+	var key = $("#searchTxt").val();
+	window.location.href = "search?key=" + key;
+}

@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,9 +13,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.egou.bean.PProduct;
 import com.egou.bean.PProductcate;
+import com.egou.bean.PSearchkeyword;
+import com.egou.dao.PSearchkeywordMapper;
 import com.egou.search.service.ICommonService;
 import com.egou.search.service.ILuceneSerive;
 import com.egou.search.vo.ProductIndex;
+import com.egou.search.vo.SearchProductParam;
 import com.egou.utils.JsonUtils;
 import com.egou.utils.ParseHelper;
 import com.egou.vo.product.SearchParam;
@@ -29,6 +33,9 @@ public class SearchController {
 	
 	@Resource(name = "commonService")
 	private ICommonService cateService;
+	
+	@Autowired
+	private PSearchkeywordMapper searchDao;
 
 	@ResponseBody
 	@RequestMapping(value = "/createIndex", method = { RequestMethod.POST, RequestMethod.GET })
@@ -36,10 +43,10 @@ public class SearchController {
 		SearchParam param=new SearchParam();
 //		int index=1;
 //		int size=1000;
-		PageInfo<PProduct> pageInfo =productDao.find_PProductslist(param,index,size);
+		PageInfo<PProduct> pageInfo =cateService.find_PProductslist(param,index,size);
 		if(pageInfo.getList()!=null&&pageInfo.getList().size()>0){
 //			for(;index<=pageInfo.getPages();index++){
-				PageInfo<PProduct> list =productDao.find_PProductslist(null,index,size);
+				PageInfo<PProduct> list =cateService.find_PProductslist(null,index,size);
 				if(list.getList()!=null&&list.getList().size()>0){
 					productDao.createIndex(list.getList());
 				}
@@ -57,7 +64,24 @@ public class SearchController {
 	@ResponseBody
 	@RequestMapping(value = "/search", method = { RequestMethod.POST, RequestMethod.GET })
 	public String search(String title,@RequestParam(required = false, defaultValue = "1") int index, @RequestParam(required = false, defaultValue = "10") int size) throws Exception {
-		List<ProductIndex> list = productDao.find_Products(title, index, size);
+		SearchProductParam param=new SearchProductParam();
+		param.setTitle(title);
+		PageInfo<ProductIndex> pageInfo =productDao.searchProducts(param, index, size);
+		return JsonUtils.objectToJson(pageInfo);
+	}
+	
+	
+	@ResponseBody
+	@RequestMapping(value = "/keyword", method = { RequestMethod.POST, RequestMethod.GET })
+	public String addKeyWord(String key) throws Exception {
+		cateService.addKeyWord(key);
+		return JsonUtils.objectToJson("");
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/getkeys", method = { RequestMethod.POST, RequestMethod.GET })
+	public String getkeys(String key) throws Exception {
+		List<PSearchkeyword> list=cateService.find_keys(key);
 		return JsonUtils.objectToJson(list);
 	}
 	
@@ -102,4 +126,6 @@ public class SearchController {
 		}
 		return JsonUtils.objectToJson("222");
 	}
+	
+	
 }

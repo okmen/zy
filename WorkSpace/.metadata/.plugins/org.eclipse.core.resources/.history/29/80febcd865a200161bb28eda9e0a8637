@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.egou.dao.PSearchkeywordMapper" >
+  <resultMap id="BaseResultMap" type="com.egou.bean.PSearchkeyword" >
+    <id column="WordId" property="wordid" jdbcType="BIGINT" />
+    <result column="KeyWords" property="keywords" jdbcType="VARCHAR" />
+    <result column="Count" property="count" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    WordId, KeyWords, Count
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from p_searchkeyword
+    where WordId = #{wordid,jdbcType=BIGINT}
+  </select>
+  <select id="selectByKeyName" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from p_searchkeyword
+    where KeyWords = #{key,jdbcType=VARCHAR}
+  </select>
+  <select id="find_PSearchkeywords" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from p_searchkeyword
+    where KeyWords = #{key,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from p_searchkeyword
+    where WordId = #{wordid,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.egou.bean.PSearchkeyword" >
+    insert into p_searchkeyword (WordId, KeyWords, Count
+      )
+    values (#{wordid,jdbcType=BIGINT}, #{keywords,jdbcType=VARCHAR}, #{count,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.egou.bean.PSearchkeyword" >
+    insert into p_searchkeyword
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="wordid != null" >
+        WordId,
+      </if>
+      <if test="keywords != null" >
+        KeyWords,
+      </if>
+      <if test="count != null" >
+        Count,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="wordid != null" >
+        #{wordid,jdbcType=BIGINT},
+      </if>
+      <if test="keywords != null" >
+        #{keywords,jdbcType=VARCHAR},
+      </if>
+      <if test="count != null" >
+        #{count,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.egou.bean.PSearchkeyword" >
+    update p_searchkeyword
+    <set >
+      <if test="keywords != null" >
+        KeyWords = #{keywords,jdbcType=VARCHAR},
+      </if>
+      <if test="count != null" >
+        Count = #{count,jdbcType=BIGINT},
+      </if>
+    </set>
+    where WordId = #{wordid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.egou.bean.PSearchkeyword" >
+    update p_searchkeyword
+    set KeyWords = #{keywords,jdbcType=VARCHAR},
+      Count = #{count,jdbcType=BIGINT}
+    where WordId = #{wordid,jdbcType=BIGINT}
+  </update>
+</mapper>
