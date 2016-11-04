@@ -1,0 +1,43 @@
+package com.egou.bean;
+
+public class PProductcate {
+    private Integer cateid;
+
+    private String classname;
+
+    private Integer step;
+
+    private String headimg;
+
+    public Integer getCateid() {
+        return cateid;
+    }
+
+    public void setCateid(Integer cateid) {
+        this.cateid = cateid;
+    }
+
+    public String getClassname() {
+        return classname;
+    }
+
+    public void setClassname(String classname) {
+        this.classname = classname == null ? null : classname.trim();
+    }
+
+    public Integer getStep() {
+        return step;
+    }
+
+    public void setStep(Integer step) {
+        this.step = step;
+    }
+
+    public String getHeadimg() {
+        return headimg;
+    }
+
+    public void setHeadimg(String headimg) {
+        this.headimg = headimg == null ? null : headimg.trim();
+    }
+}

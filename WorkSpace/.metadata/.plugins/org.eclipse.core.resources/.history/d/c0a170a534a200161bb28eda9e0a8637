@@ -1,0 +1,6 @@
+package com.egou.search.service;
+
+public interface ICommonService {
+
+	void addProductCate();
+}

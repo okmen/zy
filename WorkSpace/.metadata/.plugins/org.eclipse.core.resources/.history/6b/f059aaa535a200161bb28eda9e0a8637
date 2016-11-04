@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.egou.dao.PProductcateMapper" >
+  <resultMap id="BaseResultMap" type="com.egou.bean.PProductcate" >
+    <id column="CateId" property="cateid" jdbcType="INTEGER" />
+    <result column="ClassName" property="classname" jdbcType="VARCHAR" />
+    <result column="Step" property="step" jdbcType="INTEGER" />
+    <result column="HeadImg" property="headimg" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    CateId, ClassName, Step, HeadImg
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from p_productcate
+    where CateId = #{cateid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from p_productcate
+    where CateId = #{cateid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.egou.bean.PProductcate" >
+    insert into p_productcate (CateId, ClassName, Step, 
+      HeadImg)
+    values (#{cateid,jdbcType=INTEGER}, #{classname,jdbcType=VARCHAR}, #{step,jdbcType=INTEGER}, 
+      #{headimg,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.egou.bean.PProductcate" >
+    insert into p_productcate
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cateid != null" >
+        CateId,
+      </if>
+      <if test="classname != null" >
+        ClassName,
+      </if>
+      <if test="step != null" >
+        Step,
+      </if>
+      <if test="headimg != null" >
+        HeadImg,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cateid != null" >
+        #{cateid,jdbcType=INTEGER},
+      </if>
+      <if test="classname != null" >
+        #{classname,jdbcType=VARCHAR},
+      </if>
+      <if test="step != null" >
+        #{step,jdbcType=INTEGER},
+      </if>
+      <if test="headimg != null" >
+        #{headimg,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.egou.bean.PProductcate" >
+    update p_productcate
+    <set >
+      <if test="classname != null" >
+        ClassName = #{classname,jdbcType=VARCHAR},
+      </if>
+      <if test="step != null" >
+        Step = #{step,jdbcType=INTEGER},
+      </if>
+      <if test="headimg != null" >
+        HeadImg = #{headimg,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where CateId = #{cateid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.egou.bean.PProductcate" >
+    update p_productcate
+    set ClassName = #{classname,jdbcType=VARCHAR},
+      Step = #{step,jdbcType=INTEGER},
+      HeadImg = #{headimg,jdbcType=VARCHAR}
+    where CateId = #{cateid,jdbcType=INTEGER}
+  </update>
+</mapper>

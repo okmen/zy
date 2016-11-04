@@ -1,0 +1,5 @@
+package com.egou.vo.product;
+
+public class AddProductModel {
+
+}

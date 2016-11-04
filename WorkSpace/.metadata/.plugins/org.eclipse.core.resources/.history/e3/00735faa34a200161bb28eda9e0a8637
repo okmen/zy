@@ -1,0 +1,8 @@
+package com.egou.search.service;
+
+import com.egou.bean.PProductcate;
+
+public interface ICommonService {
+
+	void addProductCate(PProductcate cate);
+}
