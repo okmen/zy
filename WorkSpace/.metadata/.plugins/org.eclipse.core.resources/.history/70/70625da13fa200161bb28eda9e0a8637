@@ -1,0 +1,5 @@
+package com.egou.search.vo;
+
+public class SearchProductParam {
+
+}

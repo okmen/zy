@@ -1,0 +1,18 @@
+package com.egou.search.vo;
+
+import java.util.Date;
+
+public class SearchProductParam {
+
+	private Long productid;
+
+    private Long brandid; 
+
+    private Integer classid;
+
+    private String title;
+
+    private Long supplieruserid;
+
+    private Long sellerid;
+}
