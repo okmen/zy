@@ -26,4 +26,17 @@ public class ProductManageService implements IProductManageService {
 		PageInfo<PProduct> pageInfo=new PageInfo<PProduct>(relist);
 		return pageInfo;
 	}
+	
+	/**
+	 * 产品productid的生成规则 ，编号*100
+	 * 款式styltId 跟着productId尾数
+	 * 如：产品a 的productId：196600 (这里产品表 可以默认 productId:196601)
+	 * 产品a的款式红、白、蓝的styleId 分别为(196601,196602,196603)
+	 *
+	 *==============================
+	 *新增产品
+	 */
+	public void addPProduct(){
+		
+	}
 }
