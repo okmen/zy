@@ -6,21 +6,18 @@
 		<result column="BrandID" property="brandid" jdbcType="BIGINT" />
 		<result column="ClassID" property="classid" jdbcType="INTEGER" />
 		<result column="Title" property="title" jdbcType="VARCHAR" />
-		<result column="SupplierUserID" property="supplieruserid"
-			jdbcType="BIGINT" />
 		<result column="SellerID" property="sellerid" jdbcType="BIGINT" />
 		<result column="DefaultPrice" property="defaultprice" jdbcType="DECIMAL" />
 		<result column="DefaultImg" property="defaultimg" jdbcType="VARCHAR" />
 		<result column="CreateTime" property="createtime" jdbcType="TIMESTAMP" />
 		<result column="UpdateTime" property="updatetime" jdbcType="TIMESTAMP" />
-		<result column="Score" property="score" jdbcType="INTEGER" />
 		<result column="PostModelID" property="postmodelid" jdbcType="BIGINT" />
 		<result column="Status" property="status" jdbcType="INTEGER" />
 	</resultMap>
 	<sql id="Base_Column_List">
-		ProductID, BrandID, ClassID, Title, SupplierUserID, SellerID, DefaultPrice,
+		ProductID, BrandID, ClassID, Title, SellerID, DefaultPrice,
 		DefaultImg,
-		CreateTime, UpdateTime, Score, PostModelID, Status
+		CreateTime, UpdateTime, PostModelID, Status
 	</sql>
 	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
 		parameterType="java.lang.Long">
@@ -46,16 +43,16 @@
 	</delete>
 	<insert id="insert" parameterType="com.egou.bean.PProduct">
 		insert into p_product (ProductID, BrandID, ClassID,
-		Title, SupplierUserID, SellerID,
+		Title,SellerID,
 		DefaultPrice, DefaultImg, CreateTime,
-		UpdateTime, Score, PostModelID,
+		UpdateTime,PostModelID,
 		Status)
 		values (#{productid,jdbcType=BIGINT}, #{brandid,jdbcType=BIGINT},
 		#{classid,jdbcType=INTEGER},
-		#{title,jdbcType=VARCHAR}, #{supplieruserid,jdbcType=BIGINT}, #{sellerid,jdbcType=BIGINT},
+		#{title,jdbcType=VARCHAR},#{sellerid,jdbcType=BIGINT},
 		#{defaultprice,jdbcType=DECIMAL}, #{defaultimg,jdbcType=VARCHAR},
 		#{createtime,jdbcType=TIMESTAMP},
-		#{updatetime,jdbcType=TIMESTAMP}, #{score,jdbcType=INTEGER}, #{postmodelid,jdbcType=BIGINT},
+		#{updatetime,jdbcType=TIMESTAMP}, #{postmodelid,jdbcType=BIGINT},
 		#{status,jdbcType=INTEGER})
 	</insert>
 	<insert id="insertSelective" parameterType="com.egou.bean.PProduct">
@@ -73,9 +70,6 @@
 			<if test="title != null">
 				Title,
 			</if>
-			<if test="supplieruserid != null">
-				SupplierUserID,
-			</if>
 			<if test="sellerid != null">
 				SellerID,
 			</if>
@@ -90,9 +84,6 @@
 			</if>
 			<if test="updatetime != null">
 				UpdateTime,
-			</if>
-			<if test="score != null">
-				Score,
 			</if>
 			<if test="postmodelid != null">
 				PostModelID,
@@ -114,9 +105,6 @@
 			<if test="title != null">
 				#{title,jdbcType=VARCHAR},
 			</if>
-			<if test="supplieruserid != null">
-				#{supplieruserid,jdbcType=BIGINT},
-			</if>
 			<if test="sellerid != null">
 				#{sellerid,jdbcType=BIGINT},
 			</if>
@@ -131,9 +119,6 @@
 			</if>
 			<if test="updatetime != null">
 				#{updatetime,jdbcType=TIMESTAMP},
-			</if>
-			<if test="score != null">
-				#{score,jdbcType=INTEGER},
 			</if>
 			<if test="postmodelid != null">
 				#{postmodelid,jdbcType=BIGINT},
@@ -155,9 +140,6 @@
 			<if test="title != null">
 				Title = #{title,jdbcType=VARCHAR},
 			</if>
-			<if test="supplieruserid != null">
-				SupplierUserID = #{supplieruserid,jdbcType=BIGINT},
-			</if>
 			<if test="sellerid != null">
 				SellerID = #{sellerid,jdbcType=BIGINT},
 			</if>
@@ -173,9 +155,6 @@
 			<if test="updatetime != null">
 				UpdateTime = #{updatetime,jdbcType=TIMESTAMP},
 			</if>
-			<if test="score != null">
-				Score = #{score,jdbcType=INTEGER},
-			</if>
 			<if test="postmodelid != null">
 				PostModelID = #{postmodelid,jdbcType=BIGINT},
 			</if>
@@ -190,13 +169,11 @@
 		set BrandID = #{brandid,jdbcType=BIGINT},
 		ClassID = #{classid,jdbcType=INTEGER},
 		Title = #{title,jdbcType=VARCHAR},
-		SupplierUserID = #{supplieruserid,jdbcType=BIGINT},
 		SellerID = #{sellerid,jdbcType=BIGINT},
 		DefaultPrice = #{defaultprice,jdbcType=DECIMAL},
 		DefaultImg = #{defaultimg,jdbcType=VARCHAR},
 		CreateTime = #{createtime,jdbcType=TIMESTAMP},
 		UpdateTime = #{updatetime,jdbcType=TIMESTAMP},
-		Score = #{score,jdbcType=INTEGER},
 		PostModelID = #{postmodelid,jdbcType=BIGINT},
 		Status = #{status,jdbcType=INTEGER}
 		where ProductID = #{productid,jdbcType=BIGINT}
