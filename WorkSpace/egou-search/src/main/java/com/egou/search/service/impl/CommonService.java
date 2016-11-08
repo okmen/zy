@@ -16,6 +16,7 @@ import com.egou.dao.PProductcateMapper;
 import com.egou.dao.PSearchkeywordMapper;
 import com.egou.search.service.ICommonService;
 import com.egou.service.IProductManageService;
+import com.egou.utils.RedisUtil;
 import com.egou.vo.product.SearchParam;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -71,8 +72,13 @@ public class CommonService implements ICommonService{
 	 * @return
 	 */
 	public List<PSearchkeyword> find_keys(String key){
+		List<PSearchkeyword> list2=(List<PSearchkeyword>)RedisUtil.getObject(key);
+		if(list2!=null){
+			return list2;
+		}
 		PageHelper.startPage(1, 6," Count desc");
 		List<PSearchkeyword> list=searcDao.find_PSearchkeywords(key);
+		RedisUtil.setObject(key, list, 30); 
 		return list;
 	}
 }

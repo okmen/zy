@@ -1,6 +1,10 @@
 package com.egou.bean;
 
-public class PSearchkeyword {
+import java.io.Serializable;
+
+public class PSearchkeyword implements Serializable{
+	private static final long serialVersionUID = 1L;
+	
     private Long wordid;
 
     private String keywords;
