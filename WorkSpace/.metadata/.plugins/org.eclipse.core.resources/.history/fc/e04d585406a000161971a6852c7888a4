@@ -1,8 +1,0 @@
-package com.egou.search.service;
-
-public interface ILuceneSerive {
-
-	int getUser();
-	
-	List<PProduct> findAll();
-}

@@ -41,7 +41,7 @@
 	</div>
 	
 	<div class="w fl cpimgs mt20" id="showtype1div">
-	<div>总共 ${page.getTotal() }条记录</div>
+	<div>总共 ${page.getTotal() }条记录,耗时 ${time }</div>
 		<ul>
 			<c:if test="${page !=null && page.getList() !=null && page.getList().size()>0}">
 				<c:forEach items="${page.getList()}" var="product">

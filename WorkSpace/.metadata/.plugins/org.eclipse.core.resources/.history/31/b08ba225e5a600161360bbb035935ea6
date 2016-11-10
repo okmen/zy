@@ -1,0 +1,5 @@
+package com.egou.search.service.ths;
+
+public class ThreadCreateIndex implements Runnable{
+
+}

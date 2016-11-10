@@ -73,7 +73,7 @@ public class LuceneService implements ILuceneSerive {
 	/**
 	 * ´´½¨Ë÷Òý
 	 */
-	public void createIndex(List<PProduct> proList) {
+	public synchronized void createIndex(List<PProduct> proList) {
 		if (proList != null && proList.size() > 0) {
 			List<ProductIndex> productIndexs = new ArrayList<ProductIndex>();
 			for (PProduct pp : proList) {
@@ -101,10 +101,21 @@ public class LuceneService implements ILuceneSerive {
 	
 	public PageInfo<ProductIndex> searchProducts(SearchProductParam param ,int pageIndex,int pageSize) throws IOException{
 		PageInfo<ProductIndex> list = new LuceneSearch().search( param , pageIndex, pageSize);
+		List<Long> idsList=new ArrayList<Long>();
 		for (ProductIndex pp : list.getList()) {
-			PProduct product= productDao.selectByPrimaryKey(pp.getProductid());
-			if(product!=null){
-				pp.setDefaultimg(ImgDomain.GetFullImgUrl(product.getDefaultimg(), 75)); 
+			idsList.add(pp.getProductid());
+		}
+		if(idsList!=null&&idsList.size()>0){
+			List<PProduct> products= productDao.find_PProductsByPids(idsList);//productDao.selectByPrimaryKey(pp.getProductid());
+			if(products!=null&&products.size()>0){
+				for (ProductIndex pIndex : list.getList()) {
+					for (PProduct pp : products) {
+						if(pIndex.getProductid().equals(pp.getProductid())){
+							pIndex.setDefaultimg(ImgDomain.GetFullImgUrl(pp.getDefaultimg(), 75));
+						}
+					}
+				}
+				
 			}
 		}
 		return list;

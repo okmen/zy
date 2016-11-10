@@ -158,7 +158,7 @@ public class LuceneSearch extends LuceneCommon {
 			ScoreDoc scdoc = docs[i];
 			Document document = is.doc(scdoc.doc);
 			ProductIndex index = new ProductIndex();
-			index.setProductid(ParseHelper.toLong(document.get("id")));
+			index.setProductid(ParseHelper.toLong(document.get("proid")));
 			index.setTitle(document.get("title"));
 			// index.setTitle(document.get("createtime"));
 			resultList.add(index);

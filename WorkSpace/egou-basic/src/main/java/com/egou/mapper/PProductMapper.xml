@@ -37,6 +37,14 @@
 				and Title like CONCAT('%',#{param.title},'%')'
 		</if>
 	</select>
+	<select id="find_PProductsByPids" resultMap="BaseResultMap" >
+		select
+		<include refid="Base_Column_List" />
+		from p_product where ProductID in
+		<foreach item="item" index="index" collection="pids" open="(" separator="," close=")">  
+  			#{item}  
+ 		</foreach> 
+	</select>
 	<delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
 		delete from p_product
 		where ProductID = #{productid,jdbcType=BIGINT}

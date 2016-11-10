@@ -1,0 +1,74 @@
+package com.egou.search.service.ths;
+
+import java.io.IOException;
+import java.util.List;
+
+
+import com.egou.bean.PProduct;
+import com.egou.search.service.ICommonService;
+import com.egou.search.service.ILuceneSerive;
+import com.egou.search.vo.SearchProductParam;
+import com.egou.vo.product.SearchParam;
+import com.github.pagehelper.PageInfo;
+
+public class ThreadCreateIndexLucene implements Runnable {
+	ILuceneSerive productDao;
+	ICommonService cateService;
+	
+	public ThreadCreateIndexLucene() {
+	}
+
+	public ThreadCreateIndexLucene(ILuceneSerive s) {
+		productDao = s;
+	}
+	public ThreadCreateIndexLucene(ICommonService co) {
+		cateService = co;
+	}
+	
+	public ThreadCreateIndexLucene(ICommonService co,ILuceneSerive pro) {
+		cateService = co;
+		productDao=pro;
+	}
+
+
+	int index = 1;
+	int size = 100;
+	SearchProductParam params;
+	List<PProduct> prolist;
+	public void run() {
+		synchronized (this) {
+			// for (int i = 0; i < 5; i++) {
+//			try {
+//				productDao.searchProducts(params, index, size);
+//				System.out.println(Thread.currentThread().getName() + " synchronized loop " + index);
+//			} catch (IOException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+			PageInfo<PProduct> list = cateService.find_PProductslist(null, index, size);
+			if (list.getList() != null && list.getList().size() > 0) {
+				prolist=list.getList();
+			}
+			System.out.println(Thread.currentThread().getName() + " loop " + index+";prolist="+prolist);
+			productDao.createIndex(prolist);
+		}
+	}
+
+	public void search() {
+		ThreadCreateIndexLucene th1 = new ThreadCreateIndexLucene(productDao);
+		Thread t1 = new Thread(th1, "a");
+		t1.start();
+	}
+	
+	public void create() {
+		ThreadCreateIndexLucene th1 = new ThreadCreateIndexLucene(cateService,productDao);
+		SearchParam param = new SearchParam();
+		PageInfo<PProduct> pageInfo = cateService.find_PProductslist(param, index, size);
+		if (pageInfo.getList() != null && pageInfo.getList().size() > 0) {
+			prolist=pageInfo.getList();
+			for (; index <= 4; index++) {
+				new Thread(th1, "a"+index).start();
+			}
+		}
+	}
+}

@@ -34,4 +34,6 @@
 <fullyQualifiedTypeName name="com.egou.vo.product.SearchParam"/>
 <fullyQualifiedTypeName name="com.egou.search.vo.ProductIndex"/>
 <fullyQualifiedTypeName name="com.egou.search.vo.SearchProductParam"/>
+<fullyQualifiedTypeName name="java.io.Serializable"/>
+<fullyQualifiedTypeName name="com.egou.utils.RedisUtil"/>
 </qualifiedTypeNameHistroy>

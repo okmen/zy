@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.egou.dao.PProductOccMapper" >
+  <resultMap id="BaseResultMap" type="com.egou.bean.PProductOcc" >
+    <id column="ProductID" property="productid" jdbcType="BIGINT" />
+    <result column="UpdateTime" property="updatetime" jdbcType="TIMESTAMP" />
+    <result column="Status" property="status" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ProductID, UpdateTime, Status
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from p_product_occ
+    where ProductID = #{productid,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from p_product_occ
+    where ProductID = #{productid,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.egou.bean.PProductOcc" >
+    insert into p_product_occ (ProductID, UpdateTime, Status
+      )
+    values (#{productid,jdbcType=BIGINT}, #{updatetime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.egou.bean.PProductOcc" >
+    insert into p_product_occ
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="productid != null" >
+        ProductID,
+      </if>
+      <if test="updatetime != null" >
+        UpdateTime,
+      </if>
+      <if test="status != null" >
+        Status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="productid != null" >
+        #{productid,jdbcType=BIGINT},
+      </if>
+      <if test="updatetime != null" >
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.egou.bean.PProductOcc" >
+    update p_product_occ
+    <set >
+      <if test="updatetime != null" >
+        UpdateTime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        Status = #{status,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ProductID = #{productid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.egou.bean.PProductOcc" >
+    update p_product_occ
+    set UpdateTime = #{updatetime,jdbcType=TIMESTAMP},
+      Status = #{status,jdbcType=INTEGER}
+    where ProductID = #{productid,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -1,9 +1,0 @@
-package com.egou.search.service;
-
-import antlr.collections.List;
-
-public interface IluceneService {
-
-	List<PProduct> findAll();
-	
-}

@@ -1,4 +1,4 @@
 #Tomcat publish data
-#Tue Nov 08 09:44:17 GMT+08:00 2016
+#Thu Nov 10 15:44:37 GMT+08:00 2016
 org.eclipse.jst.j2ee.server\:egou-basic=WEB-INF/lib/egou-basic-0.0.1-SNAPSHOT.jar
 org.eclipse.jst.j2ee.server\:/binary\:E\:\\repository\\org\\springframework\\spring-web\\4.1.2.RELEASE\\spring-web-4.1.2.RELEASE.jar=WEB-INF/lib/spring-web-4.1.2.RELEASE.jar

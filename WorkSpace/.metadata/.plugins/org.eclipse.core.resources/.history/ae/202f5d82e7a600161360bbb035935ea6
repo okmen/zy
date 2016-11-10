@@ -1,0 +1,46 @@
+package com.egou.search.service.ths;
+
+import javax.annotation.Resource;
+
+import com.egou.bean.PProduct;
+import com.egou.search.service.ICommonService;
+import com.egou.search.service.ILuceneSerive;
+import com.github.pagehelper.PageInfo;
+
+public class ThreadCreateIndex implements Runnable {
+	@Resource(name = "commonService")
+	private  ICommonService cateService;
+	@Resource(name = "luceneService")
+	private  ILuceneSerive productDao;
+
+	int index=1;
+	int size=100;
+	public void run() {
+		synchronized (this) {
+//			for (int i = 0; i < 5; i++) {
+				PageInfo<PProduct> list = cateService.find_PProductslist(null, index, size);
+				if (list.getList() != null && list.getList().size() > 0) {
+					productDao.createIndex(list.getList());
+				}
+				System.out.println(Thread.currentThread().getName() + " synchronized loop " + index);
+//			}
+		}
+	}
+	
+	public  void ss(int size){
+		ThreadCreateIndex th1=new ThreadCreateIndex();
+		Thread t1=new Thread(th1,"a"); 
+		Thread t2=new Thread(th1,"b"); 
+		t1.start();
+		t2.start();
+		PageInfo<PProduct> pageInfo = cateService.find_PProductslist(null, index, size);
+		if (pageInfo.getList() != null && pageInfo.getList().size() > 0) {
+			for (; index <=  pageInfo.getPages(); index++) {// pageInfo.getPages()
+//				PageInfo<PProduct> list = cateService.find_PProductslist(null, index, size);
+//				if (list.getList() != null && list.getList().size() > 0) {
+//					productDao.createIndex(list.getList());
+//				}
+			}
+		}
+	}
+}

@@ -1,0 +1,54 @@
+package com.egou.search.service.impl.ths;
+
+import java.io.IOException;
+
+import javax.annotation.Resource;
+
+import org.springframework.context.ApplicationContext;
+
+import com.egou.bean.PProduct;
+import com.egou.search.service.ICommonService;
+import com.egou.search.service.ILuceneSerive;
+import com.egou.search.vo.SearchProductParam;
+import com.github.pagehelper.PageInfo;
+
+public class ThreadCreateIndex implements Runnable {
+	ILuceneSerive productDao;
+
+	public ThreadCreateIndex() {
+	}
+
+	public ThreadCreateIndex(ILuceneSerive s) {
+		productDao = s;
+	}
+
+	int index = 1;
+	int size = 100;
+	SearchProductParam params;
+
+	public void run() {
+		synchronized (this) {
+			// for (int i = 0; i < 5; i++) {
+			try {
+				productDao.searchProducts(params, index, size);
+				System.out.println(Thread.currentThread().getName() + " synchronized loop " + index);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			// PageInfo<PProduct> list = cateService.find_PProductslist(null,
+			// index, size);
+			// if (list.getList() != null && list.getList().size() > 0) {
+			// productDao.createIndex(list.getList());
+			// }
+
+			// }
+		}
+	}
+
+	public void create(ILuceneSerive dao) {
+		ThreadCreateIndex th1 = new ThreadCreateIndex(dao);
+		Thread t1 = new Thread(th1, "a");
+		t1.start();
+	}
+}

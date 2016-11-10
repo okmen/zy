@@ -1,0 +1,76 @@
+package com.egou.search.service.ths;
+
+import java.io.IOException;
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.springframework.context.ApplicationContext;
+
+import com.egou.bean.PProduct;
+import com.egou.search.service.ICommonService;
+import com.egou.search.service.ILuceneSerive;
+import com.egou.search.vo.SearchProductParam;
+import com.egou.vo.product.SearchParam;
+import com.github.pagehelper.PageInfo;
+
+public class ThreadLucene implements Runnable {
+	ILuceneSerive productDao;
+	ICommonService cateService;
+	
+	public ThreadLucene() {
+	}
+
+	public ThreadLucene(ILuceneSerive s) {
+		productDao = s;
+	}
+	public ThreadLucene(ICommonService co) {
+		cateService = co;
+	}
+
+
+	int index = 1;
+	int size = 100;
+	SearchProductParam params;
+	List<PProduct> prolist;
+	public void run() {
+		synchronized (this) {
+			// for (int i = 0; i < 5; i++) {
+//			try {
+//				productDao.searchProducts(params, index, size);
+//				System.out.println(Thread.currentThread().getName() + " synchronized loop " + index);
+//			} catch (IOException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+			PageInfo<PProduct> list = cateService.find_PProductslist(null, index, size);
+			if (list.getList() != null && list.getList().size() > 0) {
+				productDao.createIndex(list.getList());
+			}
+
+			// }
+		}
+	}
+
+	public void search(ILuceneSerive dao) {
+		ThreadLucene th1 = new ThreadLucene(dao);
+		Thread t1 = new Thread(th1, "a");
+		t1.start();
+	}
+	
+	public void create(ICommonService dao) {
+		ThreadLucene th1 = new ThreadLucene(dao);
+		SearchParam param = new SearchParam();
+		PageInfo<PProduct> pageInfo = cateService.find_PProductslist(param, index, size);
+		if (pageInfo.getList() != null && pageInfo.getList().size() > 0) {
+			for (; index <= 4; index++) {// pageInfo.getPages()
+				PageInfo<PProduct> list = cateService.find_PProductslist(null, index, size);
+				if (list.getList() != null && list.getList().size() > 0) {
+					new Thread(th1, "a"+index).start();;
+				}
+			}
+		}
+		Thread t1 = new Thread(th1, "a");
+		t1.start();
+	}
+}

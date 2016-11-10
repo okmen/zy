@@ -23,62 +23,64 @@ import com.github.pagehelper.PageInfo;
 
 @Service("commonService")
 @Transactional(rollbackFor = { RuntimeException.class, Exception.class })
-public class CommonService implements ICommonService{
+public class CommonService implements ICommonService {
 
 	@Autowired
 	private PProductcateMapper cateMapper;
-	
+
 	@Autowired
 	private PProductMapper productDao;
-	
+
 	@Autowired
 	private PSearchkeywordMapper searcDao;
-	
-	@Resource(name="productManageService")
+
+	@Resource(name = "productManageService")
 	private IProductManageService productService;
-	
+
 	/**
 	 * 新增产品分类
 	 */
-	public void addProductCate(PProductcate cate){
+	public void addProductCate(PProductcate cate) {
 		cateMapper.insert(cate);
 	}
-	
-	public PageInfo<PProduct> find_PProductslist(SearchParam param, int pageIndex,int size) {
-	return productService.find_PProductslist(param, pageIndex, size);
-}
-	
+
+	public PageInfo<PProduct> find_PProductslist(SearchParam param, int pageIndex, int size) {
+		return productService.find_PProductslist(param, pageIndex, size);
+	}
+
 	/**
 	 * 收录 搜索关键词
+	 * 
 	 * @param key
 	 * @throws Exception
 	 */
-	public void addKeyWord(String key)throws Exception{
-		PSearchkeyword model= searcDao.selectByKeyName(key);
-		if(model!=null){
-			model.setCount(model.getCount()+1);
+	public void addKeyWord(String key) throws Exception {
+		PSearchkeyword model = searcDao.selectByKeyName(key);
+		if (model != null) {
+			model.setCount(model.getCount() + 1);
 			searcDao.updateByPrimaryKey(model);
-		}else {
-			model=new PSearchkeyword();
+		} else {
+			model = new PSearchkeyword();
 			model.setKeywords(key);
 			model.setCount(1l);
 			searcDao.insert(model);
 		}
 	}
-	
+
 	/**
 	 * 获取热门搜索
+	 * 
 	 * @param key
 	 * @return
 	 */
-	public List<PSearchkeyword> find_keys(String key){
-		List<PSearchkeyword> list2=(List<PSearchkeyword>)RedisUtil.getObject(key);
-		if(list2!=null){
+	public List<PSearchkeyword> find_keys(String key) {
+		List<PSearchkeyword> list2 = (List<PSearchkeyword>) RedisUtil.getObject(key);
+		if (list2 != null) {
 			return list2;
 		}
-		PageHelper.startPage(1, 6," Count desc");
-		List<PSearchkeyword> list=searcDao.find_PSearchkeywords(key);
-		RedisUtil.setObject(key, list, 30); 
+		PageHelper.startPage(1, 6, " Count desc");
+		List<PSearchkeyword> list = searcDao.find_PSearchkeywords(key);
+		RedisUtil.setObject(key, list, 30);
 		return list;
 	}
 }

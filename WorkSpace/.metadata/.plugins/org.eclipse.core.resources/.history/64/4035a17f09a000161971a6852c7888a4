@@ -1,5 +1,0 @@
-package com.egou.search.lucene;
-
-public class AnalyzerUtil {
-
-}

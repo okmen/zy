@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.egou.dao.PProductMapper">
+	<resultMap id="BaseResultMap" type="com.egou.bean.PProduct">
+		<id column="ProductID" property="productid" jdbcType="BIGINT" />
+		<result column="BrandID" property="brandid" jdbcType="BIGINT" />
+		<result column="ClassID" property="classid" jdbcType="INTEGER" />
+		<result column="Title" property="title" jdbcType="VARCHAR" />
+		<result column="SellerID" property="sellerid" jdbcType="BIGINT" />
+		<result column="DefaultPrice" property="defaultprice" jdbcType="DECIMAL" />
+		<result column="DefaultImg" property="defaultimg" jdbcType="VARCHAR" />
+		<result column="CreateTime" property="createtime" jdbcType="TIMESTAMP" />
+		<result column="UpdateTime" property="updatetime" jdbcType="TIMESTAMP" />
+		<result column="PostModelID" property="postmodelid" jdbcType="BIGINT" />
+		<result column="Status" property="status" jdbcType="INTEGER" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		ProductID, BrandID, ClassID, Title, SellerID, DefaultPrice,
+		DefaultImg,
+		CreateTime, UpdateTime, PostModelID, Status
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Long">
+		select
+		<include refid="Base_Column_List" />
+		from p_product
+		where ProductID = #{productid,jdbcType=BIGINT}
+	</select>
+	<select id="find_PProducts" resultMap="BaseResultMap" parameterType="com.egou.vo.product.SearchParam">
+		select
+		<include refid="Base_Column_List" />
+		from p_product where 1=1
+		<if test="productid != null">
+				and ProductID = #{param.productid,jdbcType=BIGINT}
+		</if>
+		<if test="title != null">
+				and Title like CONCAT('%',#{param.title},'%')'
+		</if>
+	</select>
+	<select id="find_PProductsByPids" resultMap="BaseResultMap" >
+		select
+		<include refid="Base_Column_List" />
+		from p_product where ProductID in
+		
+		<foreach item="item" index="index" collection="list" open="(" separator="," close=")">  
+  			#{item}  
+ 		</foreach> 
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+		delete from p_product
+		where ProductID = #{productid,jdbcType=BIGINT}
+	</delete>
+	<insert id="insert" parameterType="com.egou.bean.PProduct">
+		insert into p_product (ProductID, BrandID, ClassID,
+		Title,SellerID,
+		DefaultPrice, DefaultImg, CreateTime,
+		UpdateTime,PostModelID,
+		Status)
+		values (#{productid,jdbcType=BIGINT}, #{brandid,jdbcType=BIGINT},
+		#{classid,jdbcType=INTEGER},
+		#{title,jdbcType=VARCHAR},#{sellerid,jdbcType=BIGINT},
+		#{defaultprice,jdbcType=DECIMAL}, #{defaultimg,jdbcType=VARCHAR},
+		#{createtime,jdbcType=TIMESTAMP},
+		#{updatetime,jdbcType=TIMESTAMP}, #{postmodelid,jdbcType=BIGINT},
+		#{status,jdbcType=INTEGER})
+	</insert>
+	<insert id="insertSelective" parameterType="com.egou.bean.PProduct">
+		insert into p_product
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="productid != null">
+				ProductID,
+			</if>
+			<if test="brandid != null">
+				BrandID,
+			</if>
+			<if test="classid != null">
+				ClassID,
+			</if>
+			<if test="title != null">
+				Title,
+			</if>
+			<if test="sellerid != null">
+				SellerID,
+			</if>
+			<if test="defaultprice != null">
+				DefaultPrice,
+			</if>
+			<if test="defaultimg != null">
+				DefaultImg,
+			</if>
+			<if test="createtime != null">
+				CreateTime,
+			</if>
+			<if test="updatetime != null">
+				UpdateTime,
+			</if>
+			<if test="postmodelid != null">
+				PostModelID,
+			</if>
+			<if test="status != null">
+				Status,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="productid != null">
+				#{productid,jdbcType=BIGINT},
+			</if>
+			<if test="brandid != null">
+				#{brandid,jdbcType=BIGINT},
+			</if>
+			<if test="classid != null">
+				#{classid,jdbcType=INTEGER},
+			</if>
+			<if test="title != null">
+				#{title,jdbcType=VARCHAR},
+			</if>
+			<if test="sellerid != null">
+				#{sellerid,jdbcType=BIGINT},
+			</if>
+			<if test="defaultprice != null">
+				#{defaultprice,jdbcType=DECIMAL},
+			</if>
+			<if test="defaultimg != null">
+				#{defaultimg,jdbcType=VARCHAR},
+			</if>
+			<if test="createtime != null">
+				#{createtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="updatetime != null">
+				#{updatetime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="postmodelid != null">
+				#{postmodelid,jdbcType=BIGINT},
+			</if>
+			<if test="status != null">
+				#{status,jdbcType=INTEGER},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.egou.bean.PProduct">
+		update p_product
+		<set>
+			<if test="brandid != null">
+				BrandID = #{brandid,jdbcType=BIGINT},
+			</if>
+			<if test="classid != null">
+				ClassID = #{classid,jdbcType=INTEGER},
+			</if>
+			<if test="title != null">
+				Title = #{title,jdbcType=VARCHAR},
+			</if>
+			<if test="sellerid != null">
+				SellerID = #{sellerid,jdbcType=BIGINT},
+			</if>
+			<if test="defaultprice != null">
+				DefaultPrice = #{defaultprice,jdbcType=DECIMAL},
+			</if>
+			<if test="defaultimg != null">
+				DefaultImg = #{defaultimg,jdbcType=VARCHAR},
+			</if>
+			<if test="createtime != null">
+				CreateTime = #{createtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="updatetime != null">
+				UpdateTime = #{updatetime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="postmodelid != null">
+				PostModelID = #{postmodelid,jdbcType=BIGINT},
+			</if>
+			<if test="status != null">
+				Status = #{status,jdbcType=INTEGER},
+			</if>
+		</set>
+		where ProductID = #{productid,jdbcType=BIGINT}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.egou.bean.PProduct">
+		update p_product
+		set BrandID = #{brandid,jdbcType=BIGINT},
+		ClassID = #{classid,jdbcType=INTEGER},
+		Title = #{title,jdbcType=VARCHAR},
+		SellerID = #{sellerid,jdbcType=BIGINT},
+		DefaultPrice = #{defaultprice,jdbcType=DECIMAL},
+		DefaultImg = #{defaultimg,jdbcType=VARCHAR},
+		CreateTime = #{createtime,jdbcType=TIMESTAMP},
+		UpdateTime = #{updatetime,jdbcType=TIMESTAMP},
+		PostModelID = #{postmodelid,jdbcType=BIGINT},
+		Status = #{status,jdbcType=INTEGER}
+		where ProductID = #{productid,jdbcType=BIGINT}
+	</update>
+</mapper>
