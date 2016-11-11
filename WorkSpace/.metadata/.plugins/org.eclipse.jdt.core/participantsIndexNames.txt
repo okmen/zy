@@ -1,6 +1,8 @@
 INDEX VERSION 1.127
 F:\gitPath\WorkSpace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1386979250.index
 \egou-search\src\main\java
+F:\gitPath\WorkSpace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3327634695.index
+\egou-job\src\main\resources
 F:\gitPath\WorkSpace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\463881850.index
 \egou-passport\src\main\java
 F:\gitPath\WorkSpace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2233435184.index

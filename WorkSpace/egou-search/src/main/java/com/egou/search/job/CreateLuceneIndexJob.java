@@ -10,6 +10,11 @@ import com.egou.search.service.ICommonService;
 import com.egou.search.service.ILuceneSerive;
 import com.egou.search.service.ths.ThreadCreateIndexLucene;
 
+/**
+ * ²åÈëË÷Òý
+ * @author Administrator
+ *
+ */
 public class CreateLuceneIndexJob extends QuartzJobBean {
 	private ILuceneSerive luncene;
 	private ICommonService cateService;
