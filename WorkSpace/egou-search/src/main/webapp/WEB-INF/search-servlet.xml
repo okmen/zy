@@ -31,7 +31,7 @@
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="mapperLocations" value="classpath:com/egou/mapper/*.xml" />
-		<property name="configLocation" value="classpath:mybatis-config.xml" />  
+		<property name="configLocation" value="classpath:mybatis-config.xml" />
 	</bean>
 	<!-- 自动扫描 将Mapper接口生成代理注入到Spring -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"
@@ -51,10 +51,36 @@
 
 	<!-- 扫描com.mybatis包下所有标注@Service的服务组件 -->
 	<context:component-scan base-package="com.egou.search.service" />
-	<!-- 扫描com.mybatis包下所有标注@Service的服务组件 -->
-	<context:component-scan base-package="com.egou.search.service.ths" />
-	
+
 	<context:component-scan base-package="com.egou.search.web" />
+
+	<bean id="luceneCreateIndexJobDetail" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+	
+		<property name="jobClass" value="com.egou.search.job.CreateLuceneIndexJob"></property>
+		<property name="jobDataAsMap">
+			<map>
+				<description>jobDataAsMap</description>
+				<entry key="luceneService" value-ref="luceneService" />
+				<entry key="CommonService" value-ref="commonService" />
+			</map>
+		</property>
+	</bean>
+	<!-- 另一种触发器是CornTrigger -->
+	<bean id="cornTrigger"
+		class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail" ref="luceneCreateIndexJobDetail" />
+		<!-- 每个300s触发 -->
+		<property name="cronExpression" value="0 0/2 11 * * ?" />
+	</bean>
+	<!-- 定义核心调度器 -->
+	<bean id="scheduler"
+		class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<ref bean="cornTrigger" />  
+		</property>
+	</bean>
+
+
 	<!-- 启动Spring MVC的注解功能，完成请求和注解POJO的映射 -->
 	<mvc:annotation-driven>
 		<mvc:message-converters>
@@ -82,4 +108,7 @@
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver"
 		p:prefix="/WEB-INF/jsp/" p:suffix=".jsp" />
+
+
+
 </beans>  

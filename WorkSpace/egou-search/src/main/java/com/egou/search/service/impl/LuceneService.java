@@ -96,6 +96,32 @@ public class LuceneService implements ILuceneSerive {
 			}
 		}
 	}
+	
+	public synchronized void updateIndex(List<PProduct> proList) {
+		if (proList != null && proList.size() > 0) {
+			List<ProductIndex> productIndexs = new ArrayList<ProductIndex>();
+			for (PProduct pp : proList) {
+				ProductIndex mo = new ProductIndex();
+				mo.setProductid(pp.getProductid());
+				mo.setTitle(pp.getTitle());
+				mo.setCreatetime(pp.getCreatetime());
+				mo=cateIndex(mo, pp.getClassid());
+				productIndexs.add(mo);
+			}
+			try {
+				if (productIndexs.size() > 0) {
+					if (create == null) {
+						create = new CreateLuceneIndex();
+					}
+					create.delete(productIndexs);
+					create.createIndexs(productIndexs);
+					create.check();
+				}
+			} catch (IOException e) {
+				System.out.println("插入Lucene索引时出错：" + e.getMessage());
+			}
+		}
+	}
 
 	
 	

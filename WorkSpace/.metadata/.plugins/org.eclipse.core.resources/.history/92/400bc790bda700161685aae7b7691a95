@@ -1,0 +1,11 @@
+package com.egou.search.job;
+
+import org.springframework.scheduling.quartz.QuartzJobBean;
+
+public class CreateLuceneIndexJob extends QuartzJobBean{
+
+	@Override
+	protected void executeInternal(JobExecutionContext context){
+		
+	}
+}

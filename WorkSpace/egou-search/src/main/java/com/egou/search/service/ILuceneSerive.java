@@ -16,7 +16,11 @@ public interface ILuceneSerive {
 	 * lucene 创建索引 
 	 */
 	void createIndex(List<PProduct> proList);
-	
+	/**
+	 * 更新索引
+	 * @param proList
+	 */
+	void updateIndex(List<PProduct> proList);
 
 	/**
 	 * 产品搜索

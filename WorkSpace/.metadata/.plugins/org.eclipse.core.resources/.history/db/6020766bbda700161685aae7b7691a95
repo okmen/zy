@@ -1,0 +1,5 @@
+package com.egou.search.job;
+
+public class CreateLuceneIndexJob {
+
+}

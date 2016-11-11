@@ -1,0 +1,22 @@
+package com.egou.search.job;
+
+import org.quartz.JobExecutionContext;
+import org.quartz.JobExecutionException;
+import org.springframework.scheduling.quartz.QuartzJobBean;
+
+import com.egou.search.service.ILuceneSerive;
+
+public class CreateLuceneIndexJob extends QuartzJobBean {
+	private ILuceneSerive luncene;
+
+	@Override
+	protected void executeInternal(JobExecutionContext context) throws JobExecutionException {
+		// TODO Auto-generated method stub
+		luncene = (ILuceneSerive) context.getJobDetail().getJobDataMap().get("luceneService");
+		this.work();
+	}
+	
+	private void work(){
+		luncene.createIndex(null);
+	}
+}
