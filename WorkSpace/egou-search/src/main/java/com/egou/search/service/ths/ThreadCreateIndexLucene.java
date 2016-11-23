@@ -30,8 +30,8 @@ public class ThreadCreateIndexLucene implements Runnable {
 			PageInfo<PProduct> list = searchService.find_PProductslist(null, index, size);
 			if (list.getList() != null && list.getList().size() > 0) {
 				System.out.println(Thread.currentThread().getName() + " loop " + index);
-//				lucene.createIndex(list.getList());
-				lucene.updateIndex(list.getList());
+//				lucene.createIndex(list.getList()); //创建（新建索引）
+				lucene.updateIndex(list.getList());//更新
 			}
 		}
 	}
