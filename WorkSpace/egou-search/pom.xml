@@ -1,6 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.egou</groupId>
+		<artifactId>egou-parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
 	<artifactId>egou-search</artifactId>
 	<packaging>war</packaging>
 	<name>egou-search Maven Webapp</name>
@@ -67,9 +72,5 @@
 	<build>
 		<finalName>egou-passport</finalName>
 	</build>
-	<parent>
-		<groupId>com.egou</groupId>
-		<artifactId>egou-parent</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
-	</parent>
+	
 </project>
