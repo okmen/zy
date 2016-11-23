@@ -36,5 +36,5 @@ public interface ILuceneSerive {
 	 * @param index
 	 * @param size
 	 */
-	void insertInit(int index,int size);
+//	void insertInit(int index,int size);
 }

@@ -29,7 +29,7 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="F:/gitPath/WorkSpace/egou-search/src/main/webapp/WEB-INF/lib/IKAnalyzer2012_FF.jar"/>
-	<classpathentry kind="lib" path="F:/gitPath/WorkSpace/egou-search/src/main/webapp/WEB-INF/lib/IKAnalyzer2012FF_u1.jar"/>
+	<classpathentry kind="lib" path="F:/remote/git/mine/WorkSpace/egou-search/src/main/webapp/WEB-INF/lib/IKAnalyzer2012_FF.jar"/>
+	<classpathentry kind="lib" path="F:/remote/git/mine/WorkSpace/egou-search/src/main/webapp/WEB-INF/lib/IKAnalyzer2012FF_u1.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

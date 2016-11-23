@@ -1,6 +1,5 @@
 package com.egou.search.web;
 
-import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
@@ -36,38 +35,45 @@ public class SearchController{
 	private ILuceneSerive lucene;
 
 	@Resource(name = "commonService")
-	private ICommonService cateService;
+	private ICommonService commonService;
 
 	@Autowired
 	private PSearchkeywordMapper searchDao;
+//
+//	@Autowired
+//	private HttpServletRequest request;
 
-	@Autowired
-	private HttpServletRequest request;
 
+	
 
-
+	/**
+	 * 初始化索引文件
+	 * @param type
+	 * @param index
+	 * @param size
+	 * @return
+	 * @throws Exception
+	 */
 	@ResponseBody
 	@RequestMapping(value = "/createIndex", method = { RequestMethod.POST, RequestMethod.GET })
-	public String createIndex(@RequestParam(required = false, defaultValue = "0") int type, @RequestParam(required = false, defaultValue = "1") int index, @RequestParam(required = false, defaultValue = "1000") int size) throws Exception {
+	public String createIndex() throws Exception {
 		SearchParam param = new SearchParam();
-		index = 1;
-		size = 1000;
+		PageInfo<PProduct> pageInfo = commonService.find_PProductslist(param, 1, 100);
 		long time1 = new Date().getTime();
-		PageInfo<PProduct> pageInfo = cateService.find_PProductslist(param, index, size);
-		if (type == 0) {
-			if (pageInfo.getList() != null && pageInfo.getList().size() > 0) {
-				for (; index <= 4; index++) {// pageInfo.getPages()
-					PageInfo<PProduct> list = cateService.find_PProductslist(null, index, size);
-					if (list.getList() != null && list.getList().size() > 0) {
-						lucene.createIndex(list.getList());
-					}
-				}
-			}
-		} else {
-			new ThreadCreateIndexLucene(cateService,lucene).initCreateIndex();
-		}
+//		if (type == 0) {
+//			if (pageInfo.getList() != null && pageInfo.getList().size() > 0) {
+//				for (; index <= 4; index++) {// pageInfo.getPages()
+//					PageInfo<PProduct> list = cateService.find_PProductslist(null, index, size);
+//					if (list.getList() != null && list.getList().size() > 0) {
+//						lucene.createIndex(list.getList());
+//					}
+//				}
+//			}
+//		} else {
+			new ThreadCreateIndexLucene(commonService,lucene).initCreateIndex();
+//		}
 		long time2 = new Date().getTime();
-		return JsonUtils.objectToJson(index * size + "条数据处理完,花时：" + (time2 - time1));
+		return JsonUtils.objectToJson(pageInfo.getTotal() + "条数据处理完,花时：" + (time2 - time1));
 	}
 	
 
@@ -85,24 +91,12 @@ public class SearchController{
 	public String search(String title, @RequestParam(required = false, defaultValue = "1") int index, @RequestParam(required = false, defaultValue = "10") int size) throws Exception {
 		SearchProductParam params = new SearchProductParam();
 		params.setTitle(title);
-		
 		PageInfo<ProductIndex> pageInfo = lucene.searchProducts(params, index, size);
 		return JsonUtils.objectToJson(pageInfo);
 	}
 	
-	@ResponseBody
-	@RequestMapping(value = "/keyword", method = { RequestMethod.POST, RequestMethod.GET })
-	public String addKeyWord(String key) throws Exception {
-		cateService.addKeyWord(key);
-		return JsonUtils.objectToJson("");
-	}
-
-	@ResponseBody
-	@RequestMapping(value = "/getkeys", method = { RequestMethod.POST, RequestMethod.GET })
-	public String getkeys(String key) throws Exception {
-		List<PSearchkeyword> list = cateService.find_keys(key);
-		return JsonUtils.objectToJson(list);
-	}
+	
+	
 
 	/**
 	 * 测试
@@ -124,26 +118,28 @@ public class SearchController{
 		cate.setCatename(catename);
 		cate.setStep(ParseHelper.toInt(step));
 		cate.setParentid(ParseHelper.toInt(parent));
-		cateService.addProductCate(cate);
+		commonService.addProductCate(cate);
 		return JsonUtils.objectToJson("cc");
 	}
+	
+	
 
-	/**
-	 * 拿取 okwei产品数据
-	 * 
-	 * @param index
-	 * @param size
-	 * @return
-	 * @throws Exception
-	 */
-	@ResponseBody
-	@RequestMapping(value = "/proInit", method = { RequestMethod.POST, RequestMethod.GET })
-	public String proInit(@RequestParam(required = false, defaultValue = "1") int index, @RequestParam(required = false, defaultValue = "10") int size) throws Exception {
-		int tem = 338;
-		for (int i = 1; i < tem; i++) {
-			lucene.insertInit(1, 1000);
-		}
-		return JsonUtils.objectToJson("222");
-	}
+//	/**
+//	 * 拿取 okwei产品数据
+//	 * 
+//	 * @param index
+//	 * @param size
+//	 * @return
+//	 * @throws Exception
+//	 */
+//	@ResponseBody
+//	@RequestMapping(value = "/proInit", method = { RequestMethod.POST, RequestMethod.GET })
+//	public String proInit(@RequestParam(required = false, defaultValue = "1") int index, @RequestParam(required = false, defaultValue = "10") int size) throws Exception {
+//		int tem = 338;
+//		for (int i = 1; i < tem; i++) {
+//			lucene.insertInit(1, 1000);
+//		}
+//		return JsonUtils.objectToJson("222");
+//	}
 
 }
