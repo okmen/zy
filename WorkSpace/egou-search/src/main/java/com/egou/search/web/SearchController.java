@@ -39,10 +39,6 @@ public class SearchController{
 
 	@Autowired
 	private PSearchkeywordMapper searchDao;
-//
-//	@Autowired
-//	private HttpServletRequest request;
-
 
 	
 
