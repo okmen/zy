@@ -142,29 +142,29 @@ public class LuceneService implements ILuceneSerive {
 		return list;
 	}
 	
-//	public void insertInit(int index,int size){
-//		HttpRequestHelper aaHelper=new HttpRequestHelper();
-//		String resultStr= aaHelper.sendGet("http://10.10.2.10:8080/test/findproducts", "pageIndex="+index+"&pageSize="+size);
-//		JSONObject model = JSONObject.fromObject(resultStr);
-//		String splistString = String.valueOf(model.get("BaseModle"));
-//		if (splistString != null && !"".equals(splistString)&&!"[]".equals(splistString)) {
-//			JSONArray prolistArray = new JSONArray().fromObject(splistString);
-//			if (prolistArray != null && prolistArray.size() > 0) {
-//				for (int i = 0; i < prolistArray.size(); i++) {
-//					JSONObject pro = prolistArray.getJSONObject(i);//
-//					 PProduct mo=new PProduct();
-//					 mo.setProductid(ParseHelper.toLong(String.valueOf(pro.get("productId"))));
-//					 mo.setTitle(String.valueOf(pro.get("productTitle")));
-//					 mo.setDefaultprice(ParseHelper.toDouble(String.valueOf(pro.get("defaultPrice"))));
-//					 mo.setSellerid(ParseHelper.toLong(String.valueOf(pro.get("supplierWeiId"))));
-//					 mo.setDefaultimg(String.valueOf(pro.get("defaultImg")));
-//					 mo.setCreatetime(new Date()); 
-//					 mo.setStatus(1);
-//					 mo.setBrandid(1l);
-//					 mo.setClassid(ParseHelper.toInt(String.valueOf(pro.get("classId"))));
-//					 productDao.insertSelective(mo);
-//				}
-//			}
-//		}
-//	}
+	public void insertInit(int index,int size){
+		HttpRequestHelper aaHelper=new HttpRequestHelper();
+		String resultStr= aaHelper.sendGet("http://10.10.2.10:8080/test/findproducts", "pageIndex="+index+"&pageSize="+size);
+		JSONObject model = JSONObject.fromObject(resultStr);
+		String splistString = String.valueOf(model.get("BaseModle"));
+		if (splistString != null && !"".equals(splistString)&&!"[]".equals(splistString)) {
+			JSONArray prolistArray = new JSONArray().fromObject(splistString);
+			if (prolistArray != null && prolistArray.size() > 0) {
+				for (int i = 0; i < prolistArray.size(); i++) {
+					JSONObject pro = prolistArray.getJSONObject(i);//
+					 PProduct mo=new PProduct();
+					 mo.setProductid(ParseHelper.toLong(String.valueOf(pro.get("productId"))));
+					 mo.setTitle(String.valueOf(pro.get("productTitle")));
+					 mo.setDefaultprice(ParseHelper.toDouble(String.valueOf(pro.get("defaultPrice"))));
+					 mo.setSellerid(ParseHelper.toLong(String.valueOf(pro.get("supplierWeiId"))));
+					 mo.setDefaultimg(String.valueOf(pro.get("defaultImg")));
+					 mo.setCreatetime(new Date()); 
+					 mo.setStatus(1);
+					 mo.setBrandid(1l);
+					 mo.setClassid(ParseHelper.toInt(String.valueOf(pro.get("classId"))));
+					 productDao.insertSelective(mo);
+				}
+			}
+		}
+	}
 }
