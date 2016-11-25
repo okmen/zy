@@ -99,7 +99,7 @@ public class UserMgtService implements IUserMgtService {
 		rq.setStatu(ReturnStatus.SystemError);
 		if(param==null||ObjectUtils.isEmpty(param.getPassword()) ){
 			rq.setStatu(ReturnStatus.ParamError);
-			rq.setStatusreson("���벻��Ϊ��");
+			rq.setStatusreson("参数有误");
 			return rq;
 		}
 		UUsers model=new UUsers();
@@ -108,7 +108,7 @@ public class UserMgtService implements IUserMgtService {
 		model.setStatus(1);
 		if(!ObjectUtils.isEmpty(param.getUsername()) ){
 			if(!checkUser(param.getUsername(), 1)){
-				rq.setStatusreson("�û����Ѵ���");
+				rq.setStatusreson("用户名已经存在");
 				return rq;
 			}
 			model.setUsername(param.getUsername()); 
@@ -131,7 +131,7 @@ public class UserMgtService implements IUserMgtService {
 	 */
 	public boolean checkUser(String userno,int type){
 		switch (type) {
-		case 1://�û���
+		case 1://
 			UUsers users=userDao.getUUsersByUserName(userno);
 			if(users!=null){
 				return false;
